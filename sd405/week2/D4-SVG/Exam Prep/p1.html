@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Practice</title>
+    <style>
+        *{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1:nth-child(3){
+            color: rgb(165, 122, 42);
+        }
+        h1:nth-child(1){
+            color: rgb(255, 81, 28);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Eye's</h1>
+        <svg height="200" width="300" style="border:solid 2px;">
+
+            <ellipse cx="130" cy="100" rx="100" ry="30" 
+            style="fill:rgb(220, 81, 0)"/>
+            <circle cx="60" cy="90" r="5" fill="black"/>
+            <circle cx="60" cy="90" r="2" fill="red"/>
+            <path d="M 70 80 C 70 120, 140 120, 70 120" stroke="black" fill="transparent"/>
+            <ellipse  />
+            <ellipse cx="150" cy="100" rx="10" ry="20"/>
+            <ellipse cx="150" cy="100" rx="5" ry="10" stroke="gray" fill="red"/>
+        </svg>
+        <h1>Coffee Time</h1>
+        <svg height="200" width="300" style="border:solid 2px;">
+            
+            <path   d="M 50 50 C 50 200, 250 200, 250 50" fill="rgb(161, 83, 31)"/>
+            <path   d="M 55 50 C 55 200, 245 200, 245 50" fill="rgb(101, 51, 18)"/>
+            <ellipse cx="152" cy="52" rx="100" ry="25" />
+            <ellipse cx="150" cy="50" rx="100" ry="25" />
+            <ellipse cx="150" cy="55" rx="90" ry="20"
+            fill="rgb(101, 51, 18)"/>
+            
+        </svg>
+    </div>
+
+    <h3>Fish</h3>
+    <svg width="150" height="60" style="border:1px solid red;">
+        <ellipse cx="65" cy="30" rx="50" ry="20" stroke-width="3" fill="lightblue" />
+        <circle cx="30" cy="30" r="5" stroke-width="3" fill="black" />
+
+        <polyline points=" 40,20 40,40 37,43 " style="fill:none;stroke:black;stroke-width:3" />
+        <polygon points="115,30 130,20 130,40" style="fill:none;stroke:black;stroke-width:3" />
+    </svg>
+</body>
+
+</html>
