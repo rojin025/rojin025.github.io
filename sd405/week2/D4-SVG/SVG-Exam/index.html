@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man</title>
+    <style>
+        * {
+            border: solid;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Person</h1>
+        <svg width="400" height="700">
+
+            <!-- body -->
+            <polyline points="100,300 100,600" stroke="black" stroke-width="8"/>
+            <!-- head -->
+            <polyline points="90,10 120,70 105,100 100,150" stroke="black" stroke-width="5" fill="none" />
+            <polyline points="150,10  155,100 130,170" stroke="black" stroke-width="5" fill="none" />
+            <!-- nose -->
+            <polyline points="150,200  185,250 150,250" stroke="black" stroke-width="5" fill="black" />
+            <ellipse cx="100" cy="250" rx="70" ry="100" fill="yellow" stroke="black" stroke-width="4" />
+
+            <!-- eyes -->
+            <circle cx="130" cy="200" r="10"/>  
+            <circle cx="130" cy="200" r="5" fill="white"/>  
+            <circle cx="132" cy="200" r="1" />  
+            <!-- mouth -->
+            <ellipse cx="135" cy="300" rx="24" ry="10" fill="black"/>
+            <ellipse cx="135" cy="295" rx="25" ry="10" fill="yellow"/>
+            <!-- body hand-->
+            <polyline points="100,400 185,460" stroke="black" stroke-width="8"/>
+            <polyline points="100,400 15,460" stroke="black" stroke-width="8"/>
+            <!-- body Legs-->
+            <polyline points="100,600 185,660" stroke="black" stroke-width="8"/>
+            <polyline points="100,600 15,660" stroke="black" stroke-width="8"/>
+
+            Sorry, Inline SVG not supported by your browser.
+        </svg>
+    </div>
+</body>
+
+</html>
