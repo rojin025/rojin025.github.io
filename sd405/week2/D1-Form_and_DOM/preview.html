@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clickMe() {
+            document.getElementById("myDiv").style.display='none';
+            document.getElementById("myP").style.backgroundColor="aqua";
+            document.getElementById("myP2").style.display="";   //Showing p2
+        }
+
+        function design(){
+            document.getElementById("myP2").style.color = "red";
+            document.querySelector("h1").style.display = "none";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>DOM Magic</h1>
+
+    <h4>Hello YOU!</h4>
+    <div id="myDiv">
+        <h2>My Div</h2>
+    </div>
+    <div id="myP">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eius eaque accusamus nam, optio exercitationem
+        enim ad! Numquam, magnam perferendis? Ipsam deserunt possimus, ex doloremque aspernatur soluta nulla dicta
+        explicabo!
+    </div>
+    <div id="myP2" style="display: none;">
+        <h1>This is New Para!</h1>
+    </div>
+    <button onclick="clickMe()">
+        Click me first
+    </button>
+    <button onclick="design()">
+       Then Design
+    </button>
+</body>
+
+</html>

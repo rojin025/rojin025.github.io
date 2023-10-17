@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .heading {
+            background-color: red;
+        }
+    </style>
+    <script>
+        console.log("connected!")
+        function clickme(){
+            console.log("connected!")
+            document.querySelector(".none-item").style.display = "none";
+        }
+        function showMe(){
+            console.log("inside Showme!");
+            document.getElementById("none-item2").style.display="";
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="heading">Document Object Module</h1>
+    <div class="container">
+        <div class="main">
+            <p><i>This is working in DOM.</i> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione iusto
+                omnis quibusdam veritatis natus
+                at, vitae iste molestiae quasi et dolorem rerum assumenda nulla nisi provident perferendis, recusandae
+                eum placeat.</p>
+        </div>
+        <div class="none">
+            <div class="none-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aut autem suscipit
+                repellat nulla eum mollitia hic tempore accusantium deserunt tempora molestias optio maxime architecto,
+                animi, sit eveniet! Hic, praesentium?</div>
+        </div>
+        <div id="show">
+            <div id="none-item2" style="display: none;">
+                <h3>Showing</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aut autem suscipit
+                repellat nulla eum mollitia hic tempore accusantium deserunt tempora molestias optio maxime architecto,
+                animi, sit eveniet! Hic, praesentium?</div>
+        </div>
+    </div>
+    <button onclick="clickme()">Click me</button>
+    <button onclick="showMe()">Click me</button>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Element</title>
+</head>
+
+<body>
+    <h1>Sign up</h1>
+    <div class="container">
+        <form action="/submit/" method="">
+            <div class="c-name">
+                <label for="name">Full Name</label>
+                <input type="text" value="Ram Baral" id="name" required>
+            </div>
+            <div class="c-description">
+                <div>Description
+                    <textarea name="" placeholder="not required" id="Description" cols="10" rows="5"></textarea>
+                </div>
+            </div>
+
+
+            <!-- must be same name to be single selectable -->
+            <div class="c-radio">
+                <b>Gender</b>
+                <div>
+                    <input type="radio" id="male" name="gender" value="male" checked>
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            <!-- checkboxes allow multiple values to be selected. -->
+            <div class="c-skills">
+                <div><b>Skill</b></div>
+                <div class="java">
+                    <input type="checkbox" name="java" id="java">
+                    <label for="java">Java</label>
+                </div>
+                <div class="javaScript">
+                    <input type="checkbox" name="javascript" id="javascript">
+                    <label for="javascript">Javascript</label>
+                </div>
+                <div class="python">
+                    <input type="checkbox" name="python" id="python">
+                    <label for="python">Python</label>
+                </div>
+            </div>
+            <div class="c-email">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Required">
+            </div>
+            <div class="c-country">
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                        <option value="us">US</option>
+                        <option value="uk">UK</option>
+                        <option value="canada">Canada</option>
+                </select>
+            </div>
+            <div class="c-password">
+                <label for="password">
+                    Password
+                </label>
+                <input type="password" id="password" placeholder="8 or more :@?/">
+            </div>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+</body>
+
+</html>
