@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+    <script>
+        let sum = 0;
+        function add() {
+            let a = document.querySelector("#a");
+            let b = document.querySelector("#b");
+            sum = parseInt(a.value) + parseInt(b.value) + sum;
+            a.value=0;
+            // sum = a + b;
+            console.log(sum);
+
+            document.querySelector("#sum").value = sum;
+            // document.querySelector("#result").innerHTML = "Sum is " + sum;
+        }
+    </script>
+</head>
+
+<body>
+    A <input id="a" type="text">
+    B <input id="b" type="text">
+    <br>
+    Sum is <input id="sum" type="text">
+    <button onclick="add()">Add</button>
+    <h2 id="result"></h2>
+</body>
+
+</html>
