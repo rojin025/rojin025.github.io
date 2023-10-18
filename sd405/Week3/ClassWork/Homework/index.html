@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addTextOnDiv() {
+            // Adding Text in div
+            let myDiv = document.getElementById("myDiv");
+            myDiv.innerText += "World!!!";
+        }
+        function addTextOnP() {
+            // Adding Text in div
+            let myP = document.getElementById("myP");
+            myP.innerText = "I love coding in JavaScript!!!";
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Working DOM with Div.</h3>
+    <div id="myDiv">Hello</div>
+    <button onclick="addTextOnDiv()">Click me for Div!</button>
+    
+    <h3>Working DOM with P.</h3>
+    <p id="myP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ratione velit vel, nesciunt exercitationem enim
+        maxime odio molestias quia sequi, provident minus, illum consequuntur corrupti soluta itaque obcaecati quos
+        delectus.</p>
+    
+    <button onclick="addTextOnP()">Click me for P!</button>
+
+    <h3>Working DOM with Changing Img.</h3>
+    
+</body>
+
+</html>
