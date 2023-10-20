@@ -4,8 +4,8 @@
 }
 
 #title_inner_text{
-    /* text-align: center; */
     color: #022836;
+    font-size: 26px;
 }
 
 #title_text{
@@ -29,6 +29,9 @@
     padding: 10px;
     border-radius: 10px;
 }
+.chapter{
+    margin: 0 10%;
+}
 
 #quote{
     display: inline-block;
@@ -38,6 +41,10 @@
     font-size: 60px;
     font-family:cursive;   
 }
+#dash{
+    color: #4dff00;
+    margin: -13px;
+}
 .homework{
     margin-bottom: 25px;
 }
@@ -45,16 +52,15 @@
 .demo{
     background-color: #4dff00;
     text-decoration: none;
-    padding: 5px;
+    padding: 7px;
     border-radius: 15px;
-    max-width: 60px;
+    max-width: fit-content;
     margin-bottom: 5px;
     font-weight: bolder;
 }
 .demo:hover{
-    background-color: #b4f598;
+    background-color: #5d9e45;
     text-decoration:underline;
-    color: #001d6e;
 }
 li{
     padding-left:5px;
@@ -71,4 +77,21 @@ li:nth-child(even){
     .title_img{
         display: none;
     }
+}
+@media(min-width:1200px) {
+    body{
+        margin: 0 10%;
+    }
+}
+@media(min-width:1600px) {
+    body{
+        margin: 0 10%;
+    }
+
+}
+@media(min-width:2560px) {
+    .big-container{
+        margin: 0 15%;
+    }
+
 }
