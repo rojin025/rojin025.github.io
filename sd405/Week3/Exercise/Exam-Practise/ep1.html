@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM1</title>
+    <script>
+        function init() {
+            let myDiv = document.querySelector("#myDiv");
+            myDiv.addEventListener('click', function () {
+                myH1 = document.querySelector('h1');
+                myH1.style.color = "Green";
+                myFunc();
+            });
+            document.querySelector('#myLabel').onclick = createLabel;
+        }
+
+        function createLabel() {
+            let myDiv = document.createElement('div');
+            myDiv.innerHTML = `<label for="class">Class:</label><br>
+            <input type="text" id="class" placeholder="Enter You class?">`;
+            document.querySelector(".target").append(myDiv);
+            document.querySelector("#myLabel").style.display = "none";
+        }
+        function myFunc() {
+            console.log("Web Page Loaded!");
+            let Div = document.createElement("div");
+            Div.innerHTML = "<p style='color:red;'>Hello World!</p>";
+            document.querySelector(".target").append(Div);
+        }
+        function delDiv() {
+            document.querySelector('.Div').remove();
+        }
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exam Practise</h1>
+        <button id="myDiv">Click me to create div</button>
+        <div class="target">
+            <!-- Create Div and place it here -->
+        </div>
+        <div class="Div">Hello, This is my div!</div>
+        <button onclick="delDiv()">Delete</button>
+        <button id="myLabel">Create Label</button>
+    </div>
+
+    <div class="target-1">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Full Name Please">
+    </div>
+</body>
+
+</html>

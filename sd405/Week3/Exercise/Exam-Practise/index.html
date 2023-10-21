@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clicked() {
+            // let skills = document.querySelectorAll('select option:checked');
+            // console.log(skills);
+            // let suresh = []    
+            //     for (let x of skills) {
+            //         suresh.push(x.value);
+            //     }
+            //     console.log(suresh);
+
+            let myDiv = document.createElement('div');
+            myDiv.innerHTML = `
+            <div class="selection">
+            <label for="skills" >Skillset:</label>
+            <select name="skills" id="skills" multiple>
+            <option value="js">javascript</option>
+            <option value="java" selected>java</option>
+            <option value="python">python</option>
+            <option value="react">react</option>
+            </select>
+            </div>`;
+            document.body.append(myDiv);
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Helping Suresh.</h2>
+    <button onclick="clicked()"> click</button>
+</body>
+
+</html>
