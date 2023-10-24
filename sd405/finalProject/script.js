@@ -50,7 +50,7 @@ function init() {
 
     document.querySelector('.again').addEventListener('click', function () {
         score = 20;
-        secretNumber = randomNum;
+        secretNumber = randomNum();
         displayMessage('Start guessing...');
         document.querySelector('.score').textContent = score;
         document.querySelector('.number').textContent = '?';
