@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="finalP.css">
 </head>
 
 <body>
@@ -16,30 +14,43 @@
         <div class="top-label">
             <div class="label-highscore">
                 Highscore:
-                <span class="highscore">0</span>
+                <span class="highscore">13</span>
             </div>
             <div class="between">Between 1 and 20</div>
         </div>
         <h1>Guessing Game</h1>
-
     </header>
     <main>
         <div class="game-display">
             <div class="number">?</div>
         </div>
-        <div class="game-navigation">
+        <div class="game-navigation ">
+            <div class="label-timer">Time: <span class="timer">30</span></div>
+
             <div class="message">Start guessing...</div>
             <div class="guess-input">
                 <input type="number" class="guess">
                 <div class="btn check">Check!</div>
             </div>
+            <button class="btn again">Play Again</button>
             <div class="label-score">
-                "Score:"
-                <span class="score" >20</span>
+                Score:
+                <span class="score">20</span>
             </div>
+            <input type="checkbox" class="sound-toggle" id="soundToggle">
+            <ul class="guess-history"></ul>
+            <!-- <label for="soundToggle">Toggle Sound</label> -->
         </div>
     </main>
-    <script src="script.js"></script>
+    
+    <audio id="correct-sound" src="sounds/tadaa.mp3"></audio>
+    <audio id="incorrect-sound" src="sounds/wrong-buzzer-6268.mp3"></audio>
+    <audio id="bg-sound" src="sounds/bg-sound.mp3"></audio>
+    <audio id="3Sec-sound" src="sounds/3_sec.mp3"></audio>
+    <audio id="gameOn-sound" src="sounds/gameOn.mp3"></audio>
+    <audio id="gameOver-sound" src="sounds/gameOver.mp3"></audio>
+    <audio id="gameOver2-sound" src="sounds/gameOver2.mp3"></audio>
+    <script src="finalP.JS"></script>
 </body>
 
 </html>
