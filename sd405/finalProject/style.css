@@ -7,8 +7,7 @@
     background-color: #272626;
     width: 90%;
     max-width: 850px;
-    padding: 20px;
-    border: solid rgb(63, 63, 63) 1px;
+    border: solid rgb(170, 168, 110) 1px;
     border-radius: 20px;
 }
 
@@ -30,7 +29,7 @@ header {
     border: #fff solid 8px;
     border-radius: 15px;
     text-align: center;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     max-width: 600px;
 }
 
@@ -41,7 +40,7 @@ header {
 .game-navigation {
     background-color: #000000;
     color: #ffffff;
-    border: #fff solid 8px;
+    border: #585757 solid 2px;
     border-radius: 15px;
     width: 100%;
     padding: 50px;
@@ -53,7 +52,8 @@ header {
 
 
 h1 {
-    font-size: 43px;
+    font-size: 60px;
+    padding: 5px;
     color: #fff;
 }
 
@@ -96,13 +96,48 @@ main {
         left: 150px;
     }
     75% {
-        background-color:rgb(255, 0, 0);
+        background-color:#9c0000;
         left: -150px;
     }
 
     100% {
         background-color: black;
         left: 150px;
+    }
+}
+/* win Animation */
+.winAnime {
+    position: relative;
+    animation-name: winAnimation;
+    animation-duration: 1s;
+}
+
+@keyframes winAnimation {
+    0% {
+        transform: rotate(0deg);
+        left: 0px;
+    }
+    25% {
+        transform: rotate(20deg);
+        left: 0px;
+    }
+    50% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    55% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    70% {
+        transform: rotate(0deg);
+        left: 500px;
+        background: #1ec7e6;
+    }
+    100% {
+        transform: rotate(-360deg);
+        left: 0px;
+        background: gold;
     }
 }
 
