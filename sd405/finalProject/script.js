@@ -1,4 +1,5 @@
 function init() {
+    // Global
     let secretNumber = randomNum();
     let score = 20;
     let highscore = 0;
@@ -12,13 +13,6 @@ function init() {
     let gameOver = document.getElementById('gameOver-sound');
     let gameOver2 = document.getElementById('gameOver2-sound');
     let sec_3 = document.getElementById('3Sec-sound');
-
-    //bg sound
-    window.addEventListener("DOMContentLoaded", event => {
-        let bgMusic = document.getElementById('bg-sound');
-        bgMusic.volume = 0.1;
-        bgMusic.play();
-    });
 
     function blink(x,color) {
         let myInterval;
@@ -65,7 +59,7 @@ function init() {
         return (Math.floor(Math.random() * 20) + 1);
     }
     function startTimer() {  //added
-        let seconds = 5;
+        let seconds = 30;
 
         function countdown() {
             if (seconds >= 0) {
@@ -100,8 +94,6 @@ function init() {
 
     }
 
-
-
     function wrongAnimation() {
         number.classList.add('wrongAnime');
         setTimeout(function () {
@@ -109,6 +101,7 @@ function init() {
         }, 200)
     }
     function winAnimation() {
+        document.querySelector('.container').style.backgroundColor = "gold";
         number.classList.add('winAnime');
         setTimeout(function () {
             number.classList.remove('winAnime');
@@ -120,7 +113,7 @@ function init() {
         bgMusic.play();
 
         const guess = Number(document.querySelector('.guess').value);
-        console.log(guess, typeof guess);
+        // console.log(guess, typeof guess);
         console.log("secretNumber is " + secretNumber);
 
         if (!timer)
@@ -193,6 +186,7 @@ function init() {
         document.querySelector('.guess').disabled = false;
         document.querySelector('.timer').innerHTML = 30;
         stopTimer();
+        startTimer();
     }
 
     document.querySelector('.check').addEventListener('click', execute);

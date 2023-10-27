@@ -227,3 +227,71 @@ input[type="number"] {
 label {
     display: inline-block;
 }
+
+/* suresh */
+/* 
+@media screen and (max-width: 399px) {
+    body {
+        background-color: lightslategray;
+    }
+ 
+    header {
+        width: 60%;
+    }
+    .game-navigation {
+        width: 180%;
+    }
+}
+ 
+@media screen and (min-width: 400px) and (max-width: 799px) {
+    body {
+        background-color: lightcyan;
+    }
+ 
+    header {
+        width: 60%;
+    }
+    .game-navigation {
+        width: 180%;
+    }
+}
+ 
+@media screen and (min-width: 800px) and (max-width: 1499px) {
+    body {
+        background-color: lightsteelblue;
+    }
+ 
+    header {
+        width: 60%;
+    }
+    .game-navigation {
+        width: 180%;
+    }
+}
+ 
+@media screen and (min-width: 1500px) and (max-width: 2499px) {
+    body {
+        background-color: lightyellow;
+    }
+ 
+    header {
+        width: 60%;
+    }
+    .game-navigation {
+        width: 180%;
+    }
+}
+ 
+@media screen and (min-width: 2500px) {
+    body {
+        background-color: lightblue;
+    }
+ 
+    header {
+        width: 60%;
+    }
+    .game-navigation {
+        width: 180%;
+    }
+}
+  */
