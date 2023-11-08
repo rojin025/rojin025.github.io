@@ -31,7 +31,7 @@ const student3 = {
 };
 
 const students = [student1, student2, student3];
-const answers = [3, 1, 2, 4];
+// const answers = [3, 1, 2, 4];
 students;
 /**
  *  2.1
@@ -101,3 +101,5 @@ function scoreStudent(student: Student, answers: number[]): number {
   }
   return score;
 }
+
+console.log("I am running App.....");
