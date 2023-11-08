@@ -5,6 +5,8 @@ export function double(num: number): number {
   return num * 2;
 }
 
+//test......
+
 /**
  * @returns {number} 100 times the input
  */
@@ -43,17 +45,4 @@ export function myMapArrow(
   return result;
 }
 
-export function myCallback(func: (num: number) => number, arg: number): void {
-  console.log(func(arg));
-}
-export function cube(arg: number): number {
-  return arg * arg * arg;
-}
-export function cubeSquare(arg: number): number {
-  if (arg % 2 === 0) return arg * arg * arg;
-  else return 0;
-}
-
-myCallback(cube, 10);
-myCallback(cubeSquare, 10);
-myCallback(cubeSquare, 9);
+console.log("I am running ..........");

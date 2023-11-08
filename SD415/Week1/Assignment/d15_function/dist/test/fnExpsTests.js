@@ -1,6 +1,6 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-
-import { double, times100, myMap, triples, myMapArrow } from "../src/fnExps.js";
+// import { assert } from "chai";
+import { double, times100, myMap, triples, myMapArrow } from "../src/app.js";
 // import { double } from "../src/fnExps.js";
 /* 1.	1.	Write a function, double, that takes a number and returns 2 times the number..  */
 describe("double", function () {
@@ -48,3 +48,4 @@ describe("myMap triples Array: testArray = [-10, 0, 10, 20]", function () {
     assert.deepStrictEqual(myMapArrow(testArray, triples), [-30, 0, 30, 60]);
   });
 });
+console.log(" I am running  Test..........");
