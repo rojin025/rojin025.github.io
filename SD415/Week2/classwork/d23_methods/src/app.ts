@@ -230,15 +230,3 @@ function someFunction(num: number): number {
 // console.log(lengths); // [5,7,6]
 // // modify so that it logs array with index: item.length instead of just item.length
 // console.log("expect [0: 5, 1: 7, 2: 6]", lengths2);
-
-// CW
-// function compareNumeric(a: number, b: number): number {
-//   //need to modify this function
-//   if (a > b) return 1;
-//   if (a == b) return 0;
-//   if (a < b) return -1;
-// }
-
-// let arr3 = [1, 15, 2];
-// arr3.sort(compareNumeric);
-// console.log(arr3);
