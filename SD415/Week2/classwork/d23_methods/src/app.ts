@@ -149,10 +149,96 @@
 // ➢ the first even number
 // ➢ the index of the first even number
 // const numbers = [1, 5, 18, 2, 77, 108];
-
 // const findEven = numbers.filter((item) => item % 2 === 0);
 // // console.log(findEven);
 // const findFirst = findEven.find(findEven[0]);
 // console.log(findFirst);
 // const findEven = numbers.filter((item) => item % 2 === 0);
 // console.log(findEven);
+
+// Self Practice
+
+let arr = ["I", "study", "JavaScript"];
+arr;
+// // arr.splice(1, 1);
+// arr.splice(1, 1, "Love");
+// console.log(arr);
+// // arr.concat(["j", "a", "v", " a"]);   // Why didnot it work
+// arr.push("Java");
+// console.log(arr.length);
+
+// let arrClone = arr.slice();
+// console.log(arrClone);
+
+// arr.forEach((item, index, array) => {
+//   console.log(`${item} is at index ${index} in ${array}`);
+// });
+
+// let num = [1, 2];
+// console.log(num.concat([3, 4]));
+
+// let str = "java";
+// console.log(str.concat("Script"));
+
+// // Find
+// let users = [
+//   { id: 1, name: "John" },
+//   { id: 2, name: "Pete" },
+//   { id: 3, name: "Mary" },
+//   { id: 4, name: "Mary" },
+// ];
+
+// let user = users.find((item) => item.id >= 1);
+// console.log(user);
+
+// const findUser =
+
+// let myInt = 555;
+// myInt = false;
+
+// let hike = "1043huthuthut";
+// let what = parseInt(hike, 10);
+// console.log(what);
+
+const array123 = [1, 2, 3];
+
+// use map and an arrow function to get a new array with the squares of each element -- i.e., [1, 4, 9]
+
+const square = array123.map(someFunction);
+square;
+
+// console.log(
+//   "cube is ",
+//   array123.map((num) => num * num * num)
+// );
+
+function someFunction(num: number): number {
+  return num * num;
+}
+// // console.log(square);
+// console.log("3.35 -> ", (3.35).toFixed(1));
+// console.log("6.35 -> ", (6.35).toFixed(1));
+// console.log("3.35 -> ", Math.ceil(3.35));
+// console.log("6.35 -> ", Math.ceil(6.35));
+
+// cw
+
+// let lengths = ["Bilbo", "Gandalf", "Nazgul"].map((item) => item.length);
+// let lengths2 = ["Bilbo", "Gandalf", "Nazgul"].map(
+//   (item, index) => index + ": " + item.length
+// );
+// console.log(lengths); // [5,7,6]
+// // modify so that it logs array with index: item.length instead of just item.length
+// console.log("expect [0: 5, 1: 7, 2: 6]", lengths2);
+
+// CW
+// function compareNumeric(a: number, b: number): number {
+//   //need to modify this function
+//   if (a > b) return 1;
+//   if (a == b) return 0;
+//   if (a < b) return -1;
+// }
+
+// let arr3 = [1, 15, 2];
+// arr3.sort(compareNumeric);
+// console.log(arr3);
