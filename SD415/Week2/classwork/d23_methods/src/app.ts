@@ -1,4 +1,4 @@
-// CW 1
+// // CW 1
 // type Person = {
 //   name: string;
 //   age: number;
@@ -18,8 +18,11 @@
 //   sayHi: sayHowdy,
 // };
 // function sayHowdy(this: Person) {
-//   console.log(`Hello, my name is  ${this.name}`);
+//   console.log(`Hello, my name is  ${this.name} and I am ${this.job}.`);
 // }
+
+// manager.sayHi();
+// intern.sayHi();
 
 // : colon
 
@@ -61,6 +64,19 @@
 //   console.log(numbers[key]);
 // }
 
+// const num: { [key: string]: number } = {
+//   one: 1,
+//   two: 22,
+//   three: 333,
+//   four: 444,
+// };
+
+// const propertyOrder = ["one", "four", "three", "two"];
+
+// for (const key of propertyOrder) {
+//   console.log(num[key]);
+// }
+
 // Quiz
 
 // /* write a function, sumPoints, to get the total points across all players */
@@ -80,15 +96,32 @@
 // function sumPoints(players: Player[]): number {
 //   let result = 0;
 //   for (const player of players) {
-//     for (const point of player.points) {
-//       result += point;
+//     for (const points of player.points) {
+//       result += points;
 //     }
 //   }
 //   return result;
 // }
 
 // /* write a function findProps to return an array of all the properties in any given object */
-// console.log("expect [a, b, c]: ", findProps({ a: 1, b: 2, c: 3 }));
+
+// //exam prep
+// type myObject = {
+//   a: number;
+//   b: number;
+//   c: number;
+// };
+
+// function findProps(obj: myObject): number[] {
+//   let result = [];
+//   for (const key in obj) {
+//     result.push(obj[key as keyof myObject]);
+//   }
+//   return result;
+// }
+
+// console.log("expect [1, 2, 3]: ", findProps({ a: 1, b: 2, c: 3 }));
+
 // type MyObject = {
 //   a: number;
 //   b: number;
@@ -104,6 +137,7 @@
 
 // console.log((0.666667).toFixed(4) == (2 / 3).toFixed(4)); // true?
 // console.log(0.6666666666666667 === 2 / 3); // true?
+// console.log((2 / 3).toFixed(4));
 
 // let str = "Widget with id";
 // console.log(str.indexOf("Widget")); // 0, because 'Widget' is found at the beginning
@@ -158,8 +192,15 @@
 
 // Self Practice
 
-let arr = ["I", "study", "JavaScript"];
-arr;
+let arr = ["I", "study", "JavaScript", "right", "now"];
+
+// remove 3 first elements and replace them with another
+arr.splice(0, 3, "Let's", "dance");
+
+console.log(arr); // now ["Let's", "dance", "right", "now"]
+
+// let arr = ["I", "study", "JavaScript"];
+// arr;
 // // arr.splice(1, 1);
 // arr.splice(1, 1, "Love");
 // console.log(arr);
