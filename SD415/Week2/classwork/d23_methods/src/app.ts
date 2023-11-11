@@ -3,7 +3,7 @@
 //   name: string;
 //   age: number;
 //   job: string;
-//   sayHi(this: Person): void;
+//   sayHi: (this: Person) => void;
 // };
 // const manager: Person = {
 //   name: "John",
@@ -146,7 +146,7 @@
 
 // const myString = "Slice is cool!";
 // for (let i = 0; i < myString.length; i++) {
-//   console.log(myString.slice(i, myString.length));
+//   console.log(myString.slice(i));
 // }
 
 // ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
@@ -166,7 +166,7 @@
 // // use slice and splice to implement the replaceInterior function
 // function replaceInterior(arr: number[], replacement: number): number[] {
 //   let result = arr.slice();
-//   result.splice(1, arr.length / 2, replacement);
+//   result.splice(1, arr.length - 2, replacement);
 //   return result;
 // }
 
@@ -192,12 +192,12 @@
 
 // Self Practice
 
-let arr = ["I", "study", "JavaScript", "right", "now"];
+// let arr = ["I", "study", "JavaScript", "right", "now"];
 
-// remove 3 first elements and replace them with another
-arr.splice(0, 3, "Let's", "dance");
+// // remove 3 first elements and replace them with another
+// arr.splice(0, 3, "Let's", "dance");
 
-console.log(arr); // now ["Let's", "dance", "right", "now"]
+// console.log(arr); // now ["Let's", "dance", "right", "now"]
 
 // let arr = ["I", "study", "JavaScript"];
 // arr;
@@ -241,21 +241,21 @@ console.log(arr); // now ["Let's", "dance", "right", "now"]
 // let what = parseInt(hike, 10);
 // console.log(what);
 
-const array123 = [1, 2, 3];
+// const array123 = [1, 2, 3];
 
-// use map and an arrow function to get a new array with the squares of each element -- i.e., [1, 4, 9]
+// // use map and an arrow function to get a new array with the squares of each element -- i.e., [1, 4, 9]
 
-const square = array123.map(someFunction);
-square;
+// const square = array123.map(someFunction);
+// square;
 
-// console.log(
-//   "cube is ",
-//   array123.map((num) => num * num * num)
-// );
+// // console.log(
+// //   "cube is ",
+// //   array123.map((num) => num * num * num)
+// // );
 
-function someFunction(num: number): number {
-  return num * num;
-}
+// function someFunction(num: number): number {
+//   return num * num;
+// }
 // // console.log(square);
 // console.log("3.35 -> ", (3.35).toFixed(1));
 // console.log("6.35 -> ", (6.35).toFixed(1));

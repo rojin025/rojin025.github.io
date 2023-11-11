@@ -19,9 +19,9 @@ type FullNameUser = {
 };
 
 export function map2fullName(users: SurnameUser[]): FullNameUser[] {
-  let result: { fullName: string; id: number }[] = [];
-  users.map(function (user) {
-    const fullName: string = `${user.name} ${user.surname}`;
+  let result: FullNameUser[] = [];
+  users.map((user) => {
+    const fullName = `${user.name} ${user.surname}`;
     result.push({ fullName: fullName, id: user.id });
   });
   return result;

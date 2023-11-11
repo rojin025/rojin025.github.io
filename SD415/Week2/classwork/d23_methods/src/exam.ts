@@ -284,18 +284,20 @@
 // const arr = ["I", "love", "Java!!"];
 // console.log(arr.map((str, index) => index + " : " + str.length));
 
-// // sort
-// const numbers = [1, 5, 18, 2, 77, 108];
+// sort
+const numbers = [1, 5, 18, 2, 77, 108];
 // const words = ["x", "a", "c", "b"];
-// // function des(a: number, b: number): number {
-// //   if (a < b) return 1;
-// //   if (a > b) return -1;
-// //   return 0;
-// // }
-// function ass(a: number, b: number): number {
-//   if (a > b) return 1;
-//   if (a < b) return -1;
+// function des(a: number, b: number): number {
+//   if (a < b) return 1;
+//   if (a > b) return -1;
 //   return 0;
 // }
-// console.log(numbers.sort(ass));
+function ass(a: number, b: number): number {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+}
+console.log(numbers);
+console.log(numbers.sort(ass));
+console.log(numbers);
 // console.log(words.sort());
