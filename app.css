@@ -27,7 +27,7 @@
 }
 
 .sidebar {
-  height: 500px;
+  height: 700px;
   padding: 10px 30px;
   position: sticky;
   top: 5px;
@@ -35,18 +35,55 @@
   background-color: #022836;
   display: flex;
   flex-direction: column;
-  width: 300px;
   color: white;
   border-radius: 25px;
+  max-width: 200px;
 }
 
 .title {
-  font-weight: 100;
+  font-weight: 500;
   border-bottom: solid;
 }
 
-.sidebar__section {
-  color: white;
+.sidebar__section li:hover {
+  background-color: #223c18;
+  font-size: large;
+  transition: ease;
+}
+
+.recent {
+  background-color: #0679a3;
+  width: 50px;
+  height: 20px;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+  animation-name: checkItOut;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes checkItOut {
+  0% {
+    background-color: red;
+    left: 0px;
+  }
+  25% {
+    background-color: rgb(191, 86, 0);
+    left: 20px;
+  }
+  50% {
+    background-color: rgb(149, 0, 132);
+    left: 20px;
+  }
+  75% {
+    background-color: rgb(189, 0, 101);
+    left: 0px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+  }
 }
 
 .chapter-block {
@@ -87,22 +124,30 @@
 }
 
 .demo {
-  background-color: #4dff00;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  background-color: #ff8c00;
+  width: 90px;
+  font-size: 16px;
   text-decoration: none;
-  padding: 7px;
   border-radius: 15px;
-  max-width: fit-content;
-  margin-bottom: 5px;
+  padding: 15px;
   font-weight: bolder;
+  transition: width 1s, transform 1s;
+  text-align: center;
 }
 .demo:hover {
-  background-color: #5d9e45;
-  text-decoration: underline;
+  background-color: #ff0000;
+  color: black;
+  width: 100px;
+  transition: ease-in-out;
+  border: solid rgb(140, 0, 0) 2px;
 }
 li {
   padding-left: 5px;
 }
-li:nth-child(even) {
+
+.page__content li:nth-child(even) {
   background: rgb(206, 251, 251);
   padding: 3px 5px;
   /* max-width: 600px; */
