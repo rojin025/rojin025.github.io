@@ -92,31 +92,31 @@
 
 // console.log(cube);
 
-//7. [25]Implement a fitness tracking application that allows users to monitor their daily workout statistics.
-// • should, work for a dailyRecord with 1 or more day objects.
-const session1 = { userId: 1, duration: 60 };
-const session2 = { userId: 2, duration: 45 };
-const session3 = { userId: 2, duration: 30 };
-const session4 = { userId: 3, duration: 15 };
-const session5 = { userId: 3, duration: 75 };
+// //7. [25]Implement a fitness tracking application that allows users to monitor their daily workout statistics.
+// // • should, work for a dailyRecord with 1 or more day objects.
+// const session1 = { userId: 1, duration: 60 };
+// const session2 = { userId: 2, duration: 45 };
+// const session3 = { userId: 2, duration: 30 };
+// const session4 = { userId: 3, duration: 15 };
+// const session5 = { userId: 3, duration: 75 };
 
-const day1 = { sessions: [session1, session2], date: "01/10/2022" };
-const day2 = { sessions: [session3, session4, session5], date: "01/11/2022" };
+// const day1 = { sessions: [session1, session2], date: "01/10/2022" };
+// const day2 = { sessions: [session3, session4, session5], date: "01/11/2022" };
 
-const dailyRecord = [day1, day2];
-dailyRecord;
+// const dailyRecord = [day1, day2];
+// dailyRecord;
 
-// a. define types for Session and Day
+// // a. define types for Session and Day
 
-type Session = {
-  userId: number;
-  duration: number;
-};
+// type Session = {
+//   userId: number;
+//   duration: number;
+// };
 
-type Day = {
-  sessions: Session[];
-  date: string;
-};
+// type Day = {
+//   sessions: Session[];
+//   date: string;
+// };
 
 // b. Utilize a for..of loop in a function, calculateDailyTotalDuration,
 // to find the total workout duration for a given day.
@@ -148,58 +148,58 @@ type Day = {
 // }
 // console.log("Expect 225:", calculateTotalDuration(dailyRecord));
 
-//d. Write a function getAllSessions that will use the concat method to return
-//an array with all the sessions in the dailyRecord.
+// //d. Write a function getAllSessions that will use the concat method to return
+// //an array with all the sessions in the dailyRecord.
 
-function getAllSessions(dailyRecord: Day[]): Session[] {
-  let result: Session[] = [];
-  for (const day of dailyRecord) {
-    result = result.concat(day.sessions);
-    // console.log(day.sessions);
-  }
-  return result;
-}
-
-console.log(
-  "Expect [session1, session2, session3, session 4, session5]: ",
-  getAllSessions(dailyRecord)
-);
-
-//Beni Code
-// function squares(num: number): number {
-//   return num * num;
+// function getAllSessions(dailyRecord: Day[]): Session[] {
+//   let result: Session[] = [];
+//   for (const day of dailyRecord) {
+//     result = result.concat(day.sessions);
+//     // console.log(day.sessions);
+//   }
+//   return result;
 // }
-// function cubes(num: number): number {
-//   return num * num * num;
+
+// console.log(
+//   "Expect [session1, session2, session3, session 4, session5]: ",
+//   getAllSessions(dailyRecord)
+// );
+
+// //Beni Code
+// // function squares(num: number): number {
+// //   return num * num;
+// // }
+// // function cubes(num: number): number {
+// //   return num * num * num;
+// // }
+// // function foo(callback: (num: number) => number, inputNum: number): number {
+// //   return callback(inputNum);
+// // }
+// // console.log(foo(squares, 5));
+// // console.log(foo(cubes, 5));
+
+// // const day1 = { sessions: [session1, session2], date: "01/10/2022" };
+// // const day2 = { sessions: [session3, session4, session5], date: "01/11/2022" };
+// // let result = day1.sessions.concat(day2.sessions);
+// // console.log(result);
+
+// //e. Use an appropriate array method to get all sessions for a given userid Hint: use getAllSessions.
+// function getAllSessionsForUser(dailyRecord: Day[], user: number): Session[] {
+//   let result: Session[] = [];
+//   for (const day of dailyRecord) {
+//     day.sessions.filter((session) => {
+//       if (session.userId === user) {
+//         result.push(session);
+//       }
+//     });
+//   }
+//   return result;
 // }
-// function foo(callback: (num: number) => number, inputNum: number): number {
-//   return callback(inputNum);
-// }
-// console.log(foo(squares, 5));
-// console.log(foo(cubes, 5));
 
-// const day1 = { sessions: [session1, session2], date: "01/10/2022" };
-// const day2 = { sessions: [session3, session4, session5], date: "01/11/2022" };
-// let result = day1.sessions.concat(day2.sessions);
-// console.log(result);
-
-//e. Use an appropriate array method to get all sessions for a given userid Hint: use getAllSessions.
-function getAllSessionsForUser(dailyRecord: Day[], user: number): Session[] {
-  let result: Session[] = [];
-  for (const day of dailyRecord) {
-    day.sessions.filter((session) => {
-      if (session.userId === user) {
-        result.push(session);
-      }
-    });
-  }
-  return result;
-}
-
-console.log(
-  "Expect [session2, session3]: ",
-  getAllSessionsForUser(dailyRecord, 2)
-);
+// console.log(
+//   "Expect [session2, session3]: ",
+//   getAllSessionsForUser(dailyRecord, 2)
+// );
 
 // //f. Use an appropriate array method to get array of just duration times [60, 45, 30, 15,75]
 // // Hint: use getAllSessions.
@@ -210,3 +210,80 @@ console.log(
 //   return records.map((record) => record.duration);
 // }
 // console.log("Expect [60, 45, 30, 15,75]: ", getAllDurations(dailyRecord));
+
+// My Exam Prep
+
+// Higher-order function that takes a function as an argument
+function higherOrderFunction(callback: () => void) {
+  console.log("Executing the higher-order function");
+  callback(); // Invoking the callback function
+}
+
+// Function to be passed as an argument
+function callbackFunction() {
+  console.log("Executing the callback function");
+}
+
+// Using the higher-order function with the callback
+higherOrderFunction(callbackFunction);
+
+// //6. [5]
+
+// // Higher-order function `foo`
+// function foo(func: (num: number) => number, num: number): number {
+//   return func(num);
+// }
+
+// // Function to calculate the square of a number
+// function square(x: number): number {
+//   return x * x;
+// }
+
+// // Function to calculate the cube of a number
+// function cube(x: number): number {
+//   return x ** 3;
+// }
+
+// // Example usage
+// console.log(foo(square, 5)); // Should output 25 (square of 5)
+// console.log(foo(cube, 2)); // Should output 8  (cube of 2)
+
+// console.log(cube);
+
+// function square(num: number): number {
+//   return num * num;
+// }
+
+// function cube(num: number): number {
+//   return num ** 3;
+// }
+
+// function foo(myFunction: (num: number) => number, num: number): number {
+//   return myFunction(num);
+// }
+
+// console.log("Expecting 25", foo(square, 5));
+// // console.log("Expecting 8", foo(cube, 2));
+
+// function printNum(num: number): void {
+//   console.log(num);
+// }
+
+// function myFoo(foo2: (num: number) => void, num: number): void {
+//   return foo2(num);
+// }
+
+// console.log("^ Expected : 5 and undefined -> ", myFoo(printNum, 5));
+// console.log(myFoo);
+
+// let globalVar = 5;
+// function goo(): number {
+//   console.log(globalVar);
+//   return globalVar;
+// }
+// goo;
+// function go(goo: () => number): number {
+//   return goo();
+// }
+
+// console.log("^ Expected Global var 5 and 5 -> ", go(goo)); // [ Function: go]
