@@ -126,12 +126,12 @@
 .demo {
   display: inline-block;
   color: rgb(255, 255, 255);
-  background-color: #ff8c00;
+  background-color: rgb(37, 169, 0);
   width: 90px;
   font-size: 16px;
   text-decoration: none;
   border-radius: 15px;
-  padding: 15px;
+  padding: 5px;
   font-weight: bolder;
   transition: width 1s, transform 1s;
   text-align: center;

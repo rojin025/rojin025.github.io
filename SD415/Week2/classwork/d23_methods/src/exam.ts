@@ -154,8 +154,8 @@ type Day = {
 function getAllSessions(dailyRecord: Day[]): Session[] {
   let result: Session[] = [];
   for (const day of dailyRecord) {
-    // result = result.concat(day.sessions);
-    console.log(day.sessions);
+    result = result.concat(day.sessions);
+    // console.log(day.sessions);
   }
   return result;
 }
