@@ -221,7 +221,7 @@
 // let str = "java";
 // console.log(str.concat("Script"));
 
-// // Find
+// Find
 // let users = [
 //   { id: 1, name: "John" },
 //   { id: 2, name: "Pete" },
