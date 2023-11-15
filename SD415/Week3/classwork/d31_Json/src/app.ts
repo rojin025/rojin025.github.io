@@ -111,3 +111,132 @@
 // });
 
 // console.log("Sort Obj: ", userSort);
+
+// Quiz d32
+
+// const array123 = [1, 2, 3];
+
+// use map and an arrow function to get a new array
+//  with the squares of each element -- i.e., [1, 4, 9]
+
+// const result = array123.map((num) => num * num);
+// console.log("Expected [ 1, 4, 9 ]: ", result);
+
+// //6
+// const arr123 = [1, 2, 3];
+
+// // Use reduce to get the sum of the elements of arr123.
+
+// // I can use ,0
+// const sum = arr123.reduce((sum, current) => sum + current);
+// console.log("Sum is ", sum);
+
+//which of the following will output 1 or 0? (assume prompt is installed and declared)
+// const guess = prompt("Enter either alpha or beta") ?? "alpha;"
+// const abc = {[key: string]: number} = {alpha: 1, beta: 0};
+
+// 8
+
+/* write a function, maxPoints, to find and return the maximum points of any single player.   */
+
+// const player1 = { name: "Bob", points: [1, 2, 1] };
+// const player2 = { name: "Andre", points: [2, 0, 1] };
+// const player3 = { name: "Max", points: [1, 1, 1] };
+// const players = [player1, player2, player3];
+
+// type Player = {
+//   name: string;
+//   points: number[];
+// };
+// function maxPoints(players: Player[]): number {
+//   let maxPoint = 0;
+//   for (const player of players) {
+//     let currentPoint = 0;
+//     for (const point of player.points) {
+//       currentPoint += point;
+//     }
+//     if (currentPoint > maxPoint) {
+//       maxPoint = currentPoint;
+//     }
+//   }
+//   return maxPoint;
+// }
+
+// console.log("expect 4:", maxPoints(players));
+
+// Use reduce to find the sum of an array.
+// Use reduce to find the largest element of an array.
+// [you may run out of time for these in the quiz, but they will be good practice later for the exam. Note that there are 0 points in this quiz for this question.]
+
+// const arr = [1, 2, 3];
+// const sum = arr.reduce((sum, current) => sum + current);
+// console.log("Sum is 6 :", sum);
+
+// const largest = arr.reduce((largest, current) => {
+//   if (largest < current) {
+//     return current;
+//   }
+//   return largest;
+// });
+
+// console.log("Largest is 6 : ", largest);
+
+// // Max
+// const max = arr.reduce((max, current) => (max > current ? max : current));
+// console.log("Max", max);
+
+// const team = ["Bob", "Fred", "Jim"];
+// // destructure the team array onto variables with the same names as the elements, but all lower case
+// const [bob, fred, jim] = team;
+
+// console.log("expect Bob", bob);
+// console.log("expect Fred", fred);
+// console.log("expect Jim", jim);
+
+const team = {
+  point: "Bob",
+  shooting: "Fred",
+  power: "Jim",
+  small: "Al",
+  center: "Big Sleep",
+};
+// 1. destructure the team object onto variables with the same names as the properties
+const { point, shooting, power, small, center } = team;
+point;
+shooting;
+small;
+console.log("expect Big Sleep - ", center);
+console.log("expect Jim - ", power);
+
+// // 2. destructure the team onto variables:
+// one (point guard),
+// two (shooting guard),
+//  three (small forward),
+//   four (power forward) and
+//   five (center)
+
+const {
+  point: one,
+  shooting: two,
+  power: four,
+  small: three,
+  center: five,
+} = team;
+// go find point property in team and assgin it to one.
+two;
+three;
+five;
+
+console.log("type of Jim - four: ", typeof four);
+console.log("expect Jim: ", four);
+console.log("expect Bob: ", one);
+
+// stringified array
+const numbers = "[0, 1, 2, 3]";
+const numbers2 = JSON.parse(numbers);
+console.log(numbers2[1]); // 1
+
+let user =
+  '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+const myUser = JSON.parse(user);
+console.log(myUser.friends[1]); // 1
