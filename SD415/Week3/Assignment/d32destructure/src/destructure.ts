@@ -6,7 +6,9 @@ P.S. Use Object.entries and destructuring to iterate over key/value pairs.
 */
 
 // the following type definition says that SalaryObj has keys of type string and values of type number
-type SalaryObj = { [key: string]: number };
+type SalaryObj = {
+  [key: string]: number;
+};
 
 const salaries1: SalaryObj = {
   John: 100,
@@ -17,15 +19,21 @@ const salaries1: SalaryObj = {
   Sally: 250,
 };
 
+const myNull = null;
+myNull;
+
+const arr = [1, 2, 3];
+arr;
+
 export function topSalary(salaries: SalaryObj): string {
   if (!salaries || Object.keys(salaries).length === 0) {
     return "none";
   }
   const salariesArr = Object.entries(salaries);
-  let maxSalary = salariesArr[0][1];
-  let maxPerson = "";
-  // console.log(salariesArr);
-  // console.log(maxSalary);
+
+  let maxSalary = salariesArr[0][1]; // 100
+  let maxPerson = salariesArr[0][0]; // John
+
   salariesArr.forEach(([person, salary]) => {
     if (salary > maxSalary) {
       maxSalary = salary;

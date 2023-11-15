@@ -6,17 +6,15 @@ export {
   findClassroomsWithCapacity,
   findStudentsOlderThan,
   averageStudentAge,
-}; //implement these
+};
 
 type Classroom = {
-  //YOUR CODE HERE
   roomNumber: number;
   capacity: number;
   students: Student[];
 };
 
 type Student = {
-  //YOUR CODE HERE
   name: string;
   age: number;
 };
@@ -50,7 +48,6 @@ export const classrooms = [
   },
 ];
 
-// Creating Type of Room
 type Room = {
   roomNumber: number;
   capacity: number;
@@ -98,11 +95,6 @@ function findClassroomsWithCapacity(
 ): Classroom[] {
   return classrooms.filter((classroom) => classroom.capacity >= minCapacity);
 }
-
-// type StdWithClass = {
-//   classroomNumber: number;
-//   student: Student;
-// };
 
 // 6.	Create a function findStudentsOlderThan(classrooms, minAge) that takes the classrooms array and a minimum
 // age as parameters and returns an array of student objects who are older than the specified age,

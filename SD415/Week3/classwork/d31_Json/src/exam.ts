@@ -52,7 +52,7 @@
 // //   }
 // //   )
 
-// //Exam Practise
+// Exam Practise
 
 // // //1
 // // function showMessage(from: string, text: string): void {
