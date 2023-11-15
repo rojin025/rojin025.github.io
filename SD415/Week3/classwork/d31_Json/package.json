@@ -3,6 +3,7 @@
   "scripts": {
     "app": "ts-node ./src/app.ts",
     "exam": "ts-node ./src/exam.ts",
+    "side": "ts-node ./src/sideProject.ts",
     "test": "mocha",
     "compile": "npx tsc",
     "browser": "npx http-server . -p 8080 -o index.html"

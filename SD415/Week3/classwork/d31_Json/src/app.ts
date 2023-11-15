@@ -193,50 +193,150 @@
 // console.log("expect Fred", fred);
 // console.log("expect Jim", jim);
 
-const team = {
-  point: "Bob",
-  shooting: "Fred",
-  power: "Jim",
-  small: "Al",
-  center: "Big Sleep",
-};
-// 1. destructure the team object onto variables with the same names as the properties
-const { point, shooting, power, small, center } = team;
-point;
-shooting;
-small;
-console.log("expect Big Sleep - ", center);
-console.log("expect Jim - ", power);
+// const team = {
+//   point: "Bob",
+//   shooting: "Fred",
+//   power: "Jim",
+//   small: "Al",
+//   center: "Big Sleep",
+// };
+// // 1. destructure the team object onto variables with the same names as the properties
+// const { point, shooting, power, small, center } = team;
+// point;
+// shooting;
+// small;
+// console.log("expect Big Sleep - ", center);
+// console.log("expect Jim - ", power);
 
-// // 2. destructure the team onto variables:
-// one (point guard),
-// two (shooting guard),
-//  three (small forward),
-//   four (power forward) and
-//   five (center)
+// // // 2. destructure the team onto variables:
+// // one (point guard),
+// // two (shooting guard),
+// //  three (small forward),
+// //   four (power forward) and
+// //   five (center)
 
-const {
-  point: one,
-  shooting: two,
-  power: four,
-  small: three,
-  center: five,
-} = team;
-// go find point property in team and assgin it to one.
-two;
-three;
-five;
+// const {
+//   point: one,
+//   shooting: two,
+//   power: four,
+//   small: three,
+//   center: five,
+// } = team;
+// // go find point property in team and assgin it to one.
+// two;
+// three;
+// five;
 
-console.log("type of Jim - four: ", typeof four);
-console.log("expect Jim: ", four);
-console.log("expect Bob: ", one);
+// console.log("type of Jim - four: ", typeof four);
+// console.log("expect Jim: ", four);
+// console.log("expect Bob: ", one);
 
-// stringified array
-const numbers = "[0, 1, 2, 3]";
-const numbers2 = JSON.parse(numbers);
-console.log(numbers2[1]); // 1
+// // stringified array
+// const numbers = "[0, 1, 2, 3]";
+// const numbers2 = JSON.parse(numbers);
+// console.log(numbers2[1]); // 1
 
-let user =
-  '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
-const myUser = JSON.parse(user);
-console.log(myUser.friends[1]); // 1
+// let user =
+//   '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+// const myUser = JSON.parse(user);
+// console.log(myUser.friends[1]); // 1
+
+//  ##################################################################################################################
+//  ##################################################################################################################
+// Day 3
+
+// let [firstName, surname] = "Ilya Kantor".split(" ");
+// const arr1234 = [1, 2, 3, 4, 5];
+// const [a, b, ...c] = arr1234;
+// console.log(a);
+// console.log(b);
+// console.log(c);
+
+// quiz4
+
+// flatten(dailyRecord) returns: [
+//   { date: '01/10/2022', id: 1, amount: 100 },
+//   { date: '01/10/2022', id: 2, amount: 10 },
+//   { date: '01/11/2022', id: 3, amount: 1 },
+//   { date: '01/11/2022', id: 2, amount: 5 },
+//   { date: '01/11/2022', id: 1, amount: 15 }
+//   ]
+
+// const donation1 = { funderId: 1, amount: 100 };
+// const donation2 = { funderId: 2, amount: 10 };
+// const donation3 = { funderId: 3, amount: 1 };
+// const donation4 = { funderId: 2, amount: 5 };
+// const donation5 = { funderId: 1, amount: 15 };
+// const day1 = { donations: [donation1, donation2], date: "01/10/2022" };
+// const day2 = {
+//   donations: [donation3, donation4, donation5],
+//   date: "01/11/2022",
+// };
+
+// const dailyRecord = [day1, day2];
+
+// type Day = {
+//   donations: Donation[];
+//   date: string;
+// };
+
+// type Donation = {
+//   funderId: number;
+//   amount: number;
+// };
+
+// type MyData = {
+//   date: string;
+//   id: number;
+//   amount: number;
+// };
+
+// function flatten(dailyRecord: Day[]): MyData[] {
+//   let result: MyData[] = [];
+//   dailyRecord.map(({ donation, date }) => {
+//     donation.forEach((element) => {
+//       result.push({ date: date, id: element.id, amount: element.amount });
+//     });
+//   });
+//   return result;
+// }
+
+// flatten(dailyRecord);
+
+//Write your own version of Array.map.
+// Write a function, myMap(arr, fun) that takes an array and a function as arguments and
+// //  returns a new array that is formed by applying the function to each element
+// //  of the array and saving the result in the new array.
+// // Do not use the Array.map method in your code.
+
+// function myMap(arr: number[], fun: (num: number) => number): number[] {
+//   arr.map((num) => fun(num));
+// }
+
+// function mul(num: nuber): number {
+//   return num * 2;
+// }
+
+// myMap([1, 2, 3], mul);
+
+// //Write a function, smash, that uses map and destructuring in parameters
+// // of the callback function. Remember that you need () around destructuring brackets
+// // for an object if you do not have let or const.
+// // smash input is an array of objects with x and y properties.
+// // It returns an array that has the x and y values added together.
+
+// const bar = [
+//   { x: 1, y: 2 },
+//   { x: 10, y: 4 },
+//   { x: 4, y: 2 },
+// ];
+// console.log("expect [3, 14, 6]:", smash(bar));
+
+// type Bar = {
+//   [key: string] : number;
+//   [key: string] : number;
+// };
+
+// function smash(bar: Bar[]): number[][
+//   return bar.map(({num1, num2})=>num1 + num2);
+// ]
