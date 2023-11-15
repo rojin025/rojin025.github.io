@@ -155,8 +155,14 @@ li {
 }
 
 footer {
-  font-size: small;
+  height: 700px;
   background-color: #022836;
+  background-image: url("images/5.avif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.footer {
+  font-size: small;
   padding: 50px;
   color: white;
   display: flex;
