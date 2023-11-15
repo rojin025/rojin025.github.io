@@ -340,3 +340,34 @@
 // function smash(bar: Bar[]): number[][
 //   return bar.map(({num1, num2})=>num1 + num2);
 // ]
+
+// Write a function, makeCounter() that declares a local variable, count, and
+// another local variable, innerFunc, which is an inner function; innerFunc will
+// increment the count variable and return the incremented value. makeCounter
+// should return innerFunc.
+
+// Encapsulation of data
+function makeCounter(): () => number {
+  let count = 0;
+  //create fun
+  console.log("count before: ", count);
+  return function innerFunc(): number {
+    count++;
+    console.log("inner count: ", count);
+    return count;
+  };
+}
+
+let counter = makeCounter();
+console.log("global call - ", counter());
+// let counter2 = makeCounter(); //  making another copy of fun
+// console.log(counter2());
+let counter2 = counter; //  but here we are refering to same fun
+console.log("global call - ", counter2());
+// Call it twice to make different counters, counter1 and counter2.
+
+// Do they keep independent counts?
+
+console.log("----------------");
+console.log(makeCounter()()); //  lost // it default's to 0 after calling
+console.log(makeCounter()()); //  lost count

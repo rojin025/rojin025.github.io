@@ -96,6 +96,8 @@ function findClassroomsWithCapacity(
   return classrooms.filter((classroom) => classroom.capacity >= minCapacity);
 }
 
+// find
+
 // 6.	Create a function findStudentsOlderThan(classrooms, minAge) that takes the classrooms array and a minimum
 // age as parameters and returns an array of student objects who are older than the specified age,
 //  along with the name of their classroom.
@@ -111,6 +113,8 @@ function findStudentsOlderThan(
   });
   return result;
 }
+
+//  reimplement it in reduce
 
 // 7.	Create a function averageStudentAge(classrooms) that takes the classrooms array as a parameter and returns
 // the average age of students across all classrooms.
