@@ -146,3 +146,33 @@
 // console.log("Processing ", process());
 
 // console.dir(process); //
+
+// Generic Function ; I am implementing diffrenet approahes
+let f: () => void = () => {};
+
+// function f 1st birthplace
+const g = function (): void {
+  const a = 23; //  closure variable connected to f
+  f = function (): void {
+    console.log(a * 2);
+  };
+};
+
+// function f 2nd birthplace
+const h = function (): void {
+  const a = 7;
+  f = (): void => {
+    console.log(a * 2);
+  };
+};
+
+g(); //
+console.log("Running f");
+f(); //  46
+console.log(g); // [Function: g]
+console.log(g()); //  undefined
+
+console.log("Running H");
+h();
+console.log("Redefining function f");
+f(); //  14
