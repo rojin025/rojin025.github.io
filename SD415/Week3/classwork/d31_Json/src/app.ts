@@ -254,20 +254,30 @@
 
 // quiz4
 
-// // flatten(dailyRecord) returns: [
-// //   { date: '01/10/2022', id: 1, amount: 100 },
-// //   { date: '01/10/2022', id: 2, amount: 10 },
-// //   { date: '01/11/2022', id: 3, amount: 1 },
-// //   { date: '01/11/2022', id: 2, amount: 5 },
-// //   { date: '01/11/2022', id: 1, amount: 15 }
-// //   ]
+// flatten(dailyRecord) returns:
+
+// [
+// { date: '01/10/2022', id: 1, amount: 100 },
+// { date: '01/10/2022', id: 2, amount: 10 },
+// { date: '01/11/2022', id: 3, amount: 1 },
+// { date: '01/11/2022', id: 2, amount: 5 },
+// { date: '01/11/2022', id: 1, amount: 15 }
+//   ]
 
 // const donation1 = { funderId: 1, amount: 100 };
 // const donation2 = { funderId: 2, amount: 10 };
 // const donation3 = { funderId: 3, amount: 1 };
 // const donation4 = { funderId: 2, amount: 5 };
-// const donation5 = { funderId: 1, amount: 15 };
-// const day1 = { donations: [donation1, donation2], date: "01/10/2022" };
+// const donation5 = {
+//   funderId: 1,
+//   amount: 15,
+// };
+
+// const day1 = {
+//   donations: [donation1, donation2],
+//   date: "01/10/2022",
+// };
+
 // const day2 = {
 //   donations: [donation3, donation4, donation5],
 //   date: "01/11/2022",
@@ -275,39 +285,50 @@
 
 // const dailyRecord = [day1, day2];
 
-// type Day = {
-//   donations: Donation[];
-//   date: string;
-// };
-
 // type Donation = {
 //   funderId: number;
 //   amount: number;
 // };
 
-// type MyData = {
+// type myData = {
 //   date: string;
 //   id: number;
 //   amount: number;
 // };
 
-// function flatten(dailyRecord: Day[]): MyData[] {
-//   let result: MyData[] = [];
-//   dailyRecord.forEach(({ donations, date }) => {
+// type Day = {
+//   donations: Donation[];
+//   date: string;
+// };
+
+// function flatten(dailyRecord: Day[]): myData[] {
+//   let result: myData[] = [];
+//   // dailyRecord.forEach((day) => {
+//   //   day.donations.map((donation) => {
+//   //     result.push({
+//   //       date: day.date,
+//   //       id: donation.funderId,
+//   //       amount: donation.amount,
+//   //     });
+//   //   });
+//   // });
+//   dailyRecord.map(({ donations, date }) => {
 //     donations.map(({ funderId, amount }) => {
 //       result.push({ date: date, id: funderId, amount: amount });
 //     });
 //   });
 //   return result;
 // }
-
+// //  { date: '01/10/2022', id: 1, amount: 100 }
 // console.log("flattening : ", flatten(dailyRecord));
 
-// //Write your own version of Array.map.
-// // Write a function, myMap(arr, fun) that takes an array and a function as arguments and
-// //  returns a new array that is formed by applying the function to each element
-// //  of the array and saving the result in the new array.
-// // Do not use the Array.map method in your code.
+// Write your own version of Array.map.
+// Write a function, myMap(arr, fun) that takes an array and
+// a function as arguments and
+// returns a new array that is formed by applying
+// the function to each element
+// of the array and saving the result in the new array.
+// Do not use the Array.map method in your code.
 
 // function myMap(arr: number[], fun: (num: number) => number): number[] {
 //   let result: number[] = [];
@@ -320,8 +341,12 @@
 // function mul(num: number): number {
 //   return num * 2;
 // }
+// function sqr(num: number): number {
+//   return num ** 2;
+// }
 
-// console.log("myMap: ", myMap([1, 2, 3], mul));
+// console.log("myMap : ", myMap([1, 2, 3], mul)); //  myMap :  [ 2, 4, 6 ]
+// console.log("sqr : ", myMap([1, 2, 3], sqr)); // myMap3 :  [ 1, 4, 9 ]
 
 // //Write a function, smash, that uses map and destructuring in parameters
 // // of the callback function. Remember that you need () around destructuring brackets
@@ -342,7 +367,7 @@
 // };
 
 // function smash(bar: Bar[]): number[] {
-//   return bar.map(({ x, y }: Bar) => x + y);
+//   return bar.map(({ x: number1, y: number2 }) => number1 + number2);
 // }
 
 // Write a function, makeCounter() that declares a local variable, count, and
@@ -354,20 +379,21 @@
 function makeCounter(): () => number {
   let count = 0;
   //create fun
-  console.log("count before: ", count);
+  // console.log("count before: ", count);
   return function innerFunc(): number {
-    count++;
-    console.log("inner count: ", count);
+    count++; // 1
+    // console.log("inner count: ", count);
     return count;
   };
 }
 
 let counter = makeCounter();
-console.log("global call - ", counter());
-// // let counter2 = makeCounter(); //  making another copy of fun
-// // console.log(counter2());
-// let counter2 = counter; //  but here we are refering to same fun
-// console.log("global call - ", counter2());
+console.log("global call - ", counter()); // 1
+// let counter2 = makeCounter(); //  making another copy of fun
+// console.log(counter2());
+let counter2 = counter; //  but here we are refering to same fun
+console.log("global call - ", counter2());
+console.log("global call - ", counter2());
 // // Call it twice to make different counters, counter1 and counter2.
 
 // // Do they keep independent counts?
