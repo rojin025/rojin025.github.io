@@ -427,10 +427,148 @@
 // clearTimeout(timerId);
 // console.log(timerId);
 
-// repeat with the interval of 2 seconds
-let timerId = setInterval(() => console.log("tick"), 2000);
-// after 5 seconds stop
-setTimeout(() => {
-  clearInterval(timerId);
-  console.log("stop");
-}, 5000);
+// // repeat with the interval of 2 seconds
+// let timerId = setInterval(() => console.log("tick"), 2000);
+// // after 5 seconds stop
+// setTimeout(() => {
+//   clearInterval(timerId);
+//   console.log("stop");
+// }, 5000);
+
+// Quiz 4
+
+// Recall the makeCounter code:
+
+// function makeCounter(num: number): () => number {
+//   let count = 0;
+
+//   return function (): number {
+//     for (let i = 0; i < num; i++) {
+//       count++;
+//     }
+//     return count;
+//   };
+// }
+
+// Rewrite makeCounter to that the callback function it returns can take an increment as an argument.
+// This will allow the caller to increase the count by a given number.  E.g.,
+
+// const myCount = makeCounter();
+// console.log("My current count number is :", myCount());
+
+// let number = 10;
+// for (let i = 0; i < number; i++) {
+//   console.log(myCount());
+// }
+
+// 4
+// Now modify makeCounter so that the callback it returns accepts an argument for
+//  the increment value, and also it returns a warning string whenever it has been
+// incremented by a value greater than 1.  E.g.,
+
+// const counter = makeCounter();
+
+// counter(10);
+//will return "Warning:  increment was by value greater than 1: " + x
+
+// where x is the current count value as normal.
+
+// Also, your counter should still handle the case where it is called
+// with no argument and increments by 1 as normal.
+
+// function makeCounter(): () => number {
+//   let count = 0;
+
+//   return function (num: number = 1): number {
+//     if (num > 1) {
+//       console.log(`Warning:  increment was by value greater than 1: ${num}`);
+//     }
+//     count += num;
+//     return count;
+//   };
+// }
+
+// 5 Quiz
+
+// //The following objects record the season statistics for players on a basketball team.
+// const player1 = {
+//   jersey: 8,
+//   stats: [
+//     { game: 1, points: 6 },
+//     { game: 2, points: 7 },
+//   ],
+// };
+// const player2 = {
+//   jersey: 12,
+//   stats: [
+//     { game: 1, points: 16 },
+//     { game: 2, points: 14 },
+//   ],
+// };
+// const player3 = {
+//   jersey: 6,
+//   stats: [
+//     { game: 1, points: 10 },
+//     { game: 2, points: 6 },
+//   ],
+// };
+// const teamStats = [player1, player2, player3];
+
+// type Stats = {
+//   game: number;
+//   points: number;
+// };
+// type Player = {
+//   jersey: number;
+//   stats: Stats[];
+// };
+
+// type MyData = {
+//   jersey: number;
+//   high: number;
+// };
+// function findHighScores(teamStats: Player[]): MyData[] {
+//   let result: MyData[] = [];
+
+//   for (const players of teamStats) {
+//     let max = 0;
+//     let maxPoint = players.stats.reduce(( stat )  => {
+//         if (max < stat.points) max = stat.points;
+//     }
+
+//   };
+
+//   return result;
+// }
+
+// //Write a function, findHighScores, that finds the high score in the season for each player as follows:
+// console.log(
+//   "expect [{jersey: 8, high: 7}, {jersey: 12, high: 16}, {jersey: 6, high: 10}]: ",
+//   findHighScores(teamStats)
+// );
+
+// Be sure to use meaningful variable names and write JSdoc comments for findHighScores and any helper functions.
+
+// Ex
+
+// function multiplyEvens(...arr: number[]): number {
+//   return arr.reduce((sum, num) => (num % 2 === 0 ? sum * num : sum), 1);
+// }
+
+// console.log(multiplyEvens(1, 6, 3, 4, 17, 2)); //48
+// console.log(multiplyEvens); //48
+
+function foo(callBack: (num: number) => number, num: number): number {
+  return callBack(num);
+}
+
+function squ(num: number): number {
+  return num * num;
+}
+
+function cube(num: number): number {
+  return num ** 3;
+}
+
+console.log("Squre :", foo(squ, 2));
+console.log("Cube :", foo(cube, 2));

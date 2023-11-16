@@ -129,23 +129,6 @@
 // // myCallBack(cubeSquare, 10); // Output: 100
 // // myCallBack(cubeSquare, 9); // Output: 81
 
-// // //10
-// // function executor(func: string, num1: number, num2: number): number {
-// //   if (func === "add") return num1 + num2;
-// //   else return num1 * num2;
-// // }
-
-// // console.log(executor("add", 5, 10));
-// // console.log(executor("mult", 5, 10));
-
-// // // Sum
-// // const sum = (num1: number, num2: number): number => num1 + num2;
-// // console.log(sum(1, 2));
-
-// // // Say Hi
-// // const sayHi = (name: string): void => console.log("Hello ", name);
-// // sayHi("rojin");
-
 // // // Brackets
 // // const diff = (n1: number, n2: number): number => {
 // //   return n1 - n2;

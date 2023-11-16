@@ -199,3 +199,38 @@
 // const passengersGroup = 1200; // will be ignored by clouser
 // passengersGroup;
 // boardPassengers(180, 3);
+
+//  Section 10: A Closer look at Funcitons
+//  #########################################################################################################
+//  #########################################################################################################
+
+// Default parameters
+// const dataBase: FlightData[] = [];
+
+// type FlightData = {
+//   flightNumber: string;
+//   numPassanger: number;
+//   price: number;
+// };
+
+// const flightBooking = function (
+//   flightNumber: string,
+//   numPassanger: number = 1,
+//   price: number = 99 * numPassanger
+// ): FlightData[] {
+//   const booking = {
+//     flightNumber,
+//     numPassanger,
+//     price,
+//   };
+
+//   dataBase.push(booking);
+//   return dataBase;
+// };
+
+// flightBooking("1H6B89", 8, 199);
+// flightBooking("xxB891");
+// flightBooking("2A6B80", 2, 99);
+
+// console.log("Data Base of all flights:");
+// console.log(dataBase);
