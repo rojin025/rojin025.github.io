@@ -148,31 +148,54 @@
 // console.dir(process); //
 
 // Generic Function ; I am implementing diffrenet approahes
-let f: () => void = () => {};
+// let f: () => void = () => {};
 
-// function f 1st birthplace
-const g = function (): void {
-  const a = 23; //  closure variable connected to f
-  f = function (): void {
-    console.log(a * 2);
-  };
-};
+// // function f 1st birthplace
+// const g = function (): void {
+//   const a = 23; //  closure variable connected to f
+//   f = function (): void {
+//     console.log(a * 2);
+//   };
+// };
 
-// function f 2nd birthplace
-const h = function (): void {
-  const a = 7;
-  f = (): void => {
-    console.log(a * 2);
-  };
-};
+// // function f 2nd birthplace
+// const h = function (): void {
+//   const a = 7;
+//   f = (): void => {
+//     console.log(a * 2);
+//   };
+// };
 
-g(); //
-console.log("Running f");
-f(); //  46
-console.log(g); // [Function: g]
-console.log(g()); //  undefined
+// g(); //
+// console.log("Running f");
+// f(); //  46
+// console.log(g); // [Function: g]
+// console.log(g()); //  undefined
 
-console.log("Running H");
-h();
-console.log("Redefining function f");
-f(); //  14
+// console.log("Running H");
+// h();
+// console.log("Redefining function f");
+// f(); //  14
+
+// // example 2
+// const boardPassengers = function (
+//   totalPassengers: number,
+//   waitTime: number
+// ): void {
+//   const passengersGroup = totalPassengers / 3;
+//   let group = 1;
+
+//   // Clouser birth place
+//   setTimeout(function (): void {
+//     console.log(
+//       `We are now boarding group ${group} all ${passengersGroup} passengers.`
+//     );
+//     group++;
+//   }, waitTime * 1000);
+
+//   console.log(`Inboarding Passangers in ${waitTime} secounds!!!`);
+// };
+
+// const passengersGroup = 1200; // will be ignored by clouser
+// passengersGroup;
+// boardPassengers(180, 3);

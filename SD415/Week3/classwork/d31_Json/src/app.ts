@@ -375,25 +375,25 @@
 // increment the count variable and return the incremented value. makeCounter
 // should return innerFunc.
 
-// Encapsulation of data
-function makeCounter(): () => number {
-  let count = 0;
-  //create fun
-  // console.log("count before: ", count);
-  return function innerFunc(): number {
-    count++; // 1
-    // console.log("inner count: ", count);
-    return count;
-  };
-}
+// // Encapsulation of data
+// function makeCounter(): () => number {
+//   let count = 0;
+//   //create fun
+//   // console.log("count before: ", count);
+//   return function innerFunc(): number {
+//     count++; // 1
+//     // console.log("inner count: ", count);
+//     return count;
+//   };
+// }
 
-let counter = makeCounter();
-console.log("global call - ", counter()); // 1
-// let counter2 = makeCounter(); //  making another copy of fun
-// console.log(counter2());
-let counter2 = counter; //  but here we are refering to same fun
-console.log("global call - ", counter2());
-console.log("global call - ", counter2());
+// let counter = makeCounter();
+// console.log("global call - ", counter()); // 1
+// // let counter2 = makeCounter(); //  making another copy of fun
+// // console.log(counter2());
+// let counter2 = counter; //  but here we are refering to same fun
+// console.log("global call - ", counter2());
+// console.log("global call - ", counter2());
 // // Call it twice to make different counters, counter1 and counter2.
 
 // // Do they keep independent counts?
@@ -401,3 +401,36 @@ console.log("global call - ", counter2());
 // console.log("----------------");
 // console.log(makeCounter()()); //  lost // it default's to 0 after calling
 // console.log(makeCounter()()); //  lost count
+
+// Day 4 Callbacks
+
+// function f(x: number): void {
+//   console.log("Value of x : ", x);
+// }
+
+// console.log(f()); //   compile error: no argument
+
+// console.log(f(1)); //1
+// undefined
+
+// console.log(f(1, 2)); //  expected one argument
+
+// let mySetTimeout = setTimeout(f, 1000, 2);
+// passing function f after 1 sec with 2 arg
+// setTimeout is expecting a function refrence!!!
+
+// console.log(mySetTimeout);
+// clearTimeout(mySetTimeout);
+
+// let timerId = setTimeout(f, 1000, 2);
+// console.log(timerId);
+// clearTimeout(timerId);
+// console.log(timerId);
+
+// repeat with the interval of 2 seconds
+let timerId = setInterval(() => console.log("tick"), 2000);
+// after 5 seconds stop
+setTimeout(() => {
+  clearInterval(timerId);
+  console.log("stop");
+}, 5000);
