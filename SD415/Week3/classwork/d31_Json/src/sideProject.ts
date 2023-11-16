@@ -126,3 +126,21 @@
 // }
 
 // console.log(fullInfo(student));
+
+// Day 4 Closures
+//  #########################################################################################################
+//  #########################################################################################################
+
+function bookingFlight(): () => void {
+  let passengerCount = 0;
+
+  return function (): number {
+    passengerCount++;
+    console.log("Passing Counting :- ", passengerCount);
+    return passengerCount;
+  };
+}
+
+const process = bookingFlight();
+console.log("Processing ", process());
+console.log("Processing ", process());

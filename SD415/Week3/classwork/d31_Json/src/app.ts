@@ -254,13 +254,13 @@
 
 // quiz4
 
-// flatten(dailyRecord) returns: [
-//   { date: '01/10/2022', id: 1, amount: 100 },
-//   { date: '01/10/2022', id: 2, amount: 10 },
-//   { date: '01/11/2022', id: 3, amount: 1 },
-//   { date: '01/11/2022', id: 2, amount: 5 },
-//   { date: '01/11/2022', id: 1, amount: 15 }
-//   ]
+// // flatten(dailyRecord) returns: [
+// //   { date: '01/10/2022', id: 1, amount: 100 },
+// //   { date: '01/10/2022', id: 2, amount: 10 },
+// //   { date: '01/11/2022', id: 3, amount: 1 },
+// //   { date: '01/11/2022', id: 2, amount: 5 },
+// //   { date: '01/11/2022', id: 1, amount: 15 }
+// //   ]
 
 // const donation1 = { funderId: 1, amount: 100 };
 // const donation2 = { funderId: 2, amount: 10 };
@@ -293,31 +293,35 @@
 
 // function flatten(dailyRecord: Day[]): MyData[] {
 //   let result: MyData[] = [];
-//   dailyRecord.map(({ donation, date }) => {
-//     donation.forEach((element) => {
-//       result.push({ date: date, id: element.id, amount: element.amount });
+//   dailyRecord.forEach(({ donations, date }) => {
+//     donations.map(({ funderId, amount }) => {
+//       result.push({ date: date, id: funderId, amount: amount });
 //     });
 //   });
 //   return result;
 // }
 
-// flatten(dailyRecord);
+// console.log("flattening : ", flatten(dailyRecord));
 
-//Write your own version of Array.map.
-// Write a function, myMap(arr, fun) that takes an array and a function as arguments and
+// //Write your own version of Array.map.
+// // Write a function, myMap(arr, fun) that takes an array and a function as arguments and
 // //  returns a new array that is formed by applying the function to each element
 // //  of the array and saving the result in the new array.
 // // Do not use the Array.map method in your code.
 
 // function myMap(arr: number[], fun: (num: number) => number): number[] {
-//   arr.map((num) => fun(num));
+//   let result: number[] = [];
+//   for (const num of arr) {
+//     result.push(fun(num));
+//   }
+//   return result;
 // }
 
-// function mul(num: nuber): number {
+// function mul(num: number): number {
 //   return num * 2;
 // }
 
-// myMap([1, 2, 3], mul);
+// console.log("myMap: ", myMap([1, 2, 3], mul));
 
 // //Write a function, smash, that uses map and destructuring in parameters
 // // of the callback function. Remember that you need () around destructuring brackets
@@ -333,13 +337,13 @@
 // console.log("expect [3, 14, 6]:", smash(bar));
 
 // type Bar = {
-//   [key: string] : number;
-//   [key: string] : number;
+//   x: number;
+//   y: number;
 // };
 
-// function smash(bar: Bar[]): number[][
-//   return bar.map(({num1, num2})=>num1 + num2);
-// ]
+// function smash(bar: Bar[]): number[] {
+//   return bar.map(({ x, y }: Bar) => x + y);
+// }
 
 // Write a function, makeCounter() that declares a local variable, count, and
 // another local variable, innerFunc, which is an inner function; innerFunc will
@@ -360,14 +364,14 @@ function makeCounter(): () => number {
 
 let counter = makeCounter();
 console.log("global call - ", counter());
-// let counter2 = makeCounter(); //  making another copy of fun
-// console.log(counter2());
-let counter2 = counter; //  but here we are refering to same fun
-console.log("global call - ", counter2());
-// Call it twice to make different counters, counter1 and counter2.
+// // let counter2 = makeCounter(); //  making another copy of fun
+// // console.log(counter2());
+// let counter2 = counter; //  but here we are refering to same fun
+// console.log("global call - ", counter2());
+// // Call it twice to make different counters, counter1 and counter2.
 
-// Do they keep independent counts?
+// // Do they keep independent counts?
 
-console.log("----------------");
-console.log(makeCounter()()); //  lost // it default's to 0 after calling
-console.log(makeCounter()()); //  lost count
+// console.log("----------------");
+// console.log(makeCounter()()); //  lost // it default's to 0 after calling
+// console.log(makeCounter()()); //  lost count
