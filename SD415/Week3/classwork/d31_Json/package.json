@@ -2,6 +2,7 @@
   "type": "module",
   "scripts": {
     "app": "ts-node ./src/app.ts",
+    "quiz": "ts-node ./src/quiz.ts",
     "exam": "ts-node ./src/exam.ts",
     "side": "ts-node ./src/sideProject.ts",
     "test": "mocha",
