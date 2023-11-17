@@ -402,6 +402,8 @@
 // console.log(makeCounter()()); //  lost // it default's to 0 after calling
 // console.log(makeCounter()()); //  lost count
 
+//  ################################################################################
+//  ################################################################################
 // Day 4 Callbacks
 
 // function f(x: number): void {
@@ -435,40 +437,58 @@
 //   console.log("stop");
 // }, 5000);
 
-// Quiz 4
+// Quiz
+//  ----------------------------------------------------------------------------------------------------
+//  3
 
 // Recall the makeCounter code:
 
-// function makeCounter(num: number): () => number {
+// function makeCounter(): ()=>number {
+
 //   let count = 0;
 
-//   return function (): number {
-//     for (let i = 0; i < num; i++) {
-//       count++;
-//     }
+//   return function():number { count++; return count; };
+
+// }
+
+// // Rewrite makeCounter to that the callback function it returns can take an increment as an argument.
+// // This will allow the caller to increase the count by a given number.  E.g.,
+// // const myCount = makeCounter();
+// // myCount(10);  // will return the count incremented by 10.
+
+// function makeCounter(): (increment?: number) => number {
+//   let count = 0;
+
+//   return function (increment?: number): number {
+//     count += increment ?? 1; //  nullish coalescing operator
 //     return count;
 //   };
 // }
 
-// Rewrite makeCounter to that the callback function it returns can take an increment as an argument.
-// This will allow the caller to increase the count by a given number.  E.g.,
-
 // const myCount = makeCounter();
-// console.log("My current count number is :", myCount());
-
-// let number = 10;
-// for (let i = 0; i < number; i++) {
-//   console.log(myCount());
-// }
+// console.log("My current count number is :", myCount()); //  1
+// console.log("My current count(10) number is :", myCount(10)); //  11
 
 // 4
+
 // Now modify makeCounter so that the callback it returns accepts an argument for
 //  the increment value, and also it returns a warning string whenever it has been
 // incremented by a value greater than 1.  E.g.,
 
-// const counter = makeCounter();
+// function makeCounter(): (increment?: number) => number {
+//   let count = 0;
 
-// counter(10);
+//   return function (increment?: number): number {
+//     count += increment ?? 1;
+//     if (increment && increment > 1)
+//       console.log("Warining: + > 1 by", increment); // checking truthy too
+//     return count;
+//   };
+// }
+
+// const counter = makeCounter();
+// console.log(counter(10));
+// console.log(counter(2));
 //will return "Warning:  increment was by value greater than 1: " + x
 
 // where x is the current count value as normal.
@@ -488,9 +508,9 @@
 //   };
 // }
 
-// 5 Quiz
+// // 5 Quiz
+// // //The following objects record the season statistics for players on a basketball team.
 
-// //The following objects record the season statistics for players on a basketball team.
 // const player1 = {
 //   jersey: 8,
 //   stats: [
@@ -529,17 +549,28 @@
 // };
 // function findHighScores(teamStats: Player[]): MyData[] {
 //   let result: MyData[] = [];
-
-//   for (const players of teamStats) {
-//     let max = 0;
-//     let maxPoint = players.stats.reduce(( stat )  => {
-//         if (max < stat.points) max = stat.points;
-//     }
-
-//   };
-
+//   //          DS doesnot need ()
+//   for (const { jersey, stats } of teamStats) {
+//     //        () needed for destructures
+//     const pointsArr = stats.map(({ points }) => points);
+//     const maxPoint = Math.max(...pointsArr);
+//     result.push({ jersey: jersey, high: maxPoint });
+//   }
+//   console.log("Max Result : ", result);
 //   return result;
 // }
+
+// findHighScores(teamStats);
+
+// // GPT Awesomeness
+// const findHighScores2 = (teamStats: Player[]): MyData[] =>
+//   teamStats.map(({ jersey, stats }) => ({
+//     jersey,
+//     high: Math.max(...stats.map(({ points }) => points)),
+//   }));
+
+// const result: MyData[] = findHighScores2(teamStats);
+// console.log(result);
 
 // //Write a function, findHighScores, that finds the high score in the season for each player as follows:
 // console.log(
@@ -558,17 +589,17 @@
 // console.log(multiplyEvens(1, 6, 3, 4, 17, 2)); //48
 // console.log(multiplyEvens); //48
 
-function foo(callBack: (num: number) => number, num: number): number {
-  return callBack(num);
-}
+// function foo(callBack: (num: number) => number, num: number): number {
+//   return callBack(num);
+// }
 
-function squ(num: number): number {
-  return num * num;
-}
+// function squ(num: number): number {
+//   return num * num;
+// }
 
-function cube(num: number): number {
-  return num ** 3;
-}
+// function cube(num: number): number {
+//   return num ** 3;
+// }
 
-console.log("Squre :", foo(squ, 2));
-console.log("Cube :", foo(cube, 2));
+// console.log("Squre :", foo(squ, 2));
+// console.log("Cube :", foo(cube, 2));
