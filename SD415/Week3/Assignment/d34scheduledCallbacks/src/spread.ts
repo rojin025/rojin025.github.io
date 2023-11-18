@@ -20,7 +20,7 @@ export function concat<T>(arr1: T[], arr2: T[]): T[] {
 export function findMin(...arr: number[]): number {
   return Math.min(...arr);
 }
-export function findMax(arr: number[]): number {
+export function findMax(...arr: number[]): number {
   return Math.max(...arr);
 }
 

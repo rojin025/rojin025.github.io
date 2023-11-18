@@ -1,6 +1,12 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 // import { assert } from "chai";
-import { copyArray, concat, findMin, findProduct } from "../src/spread.js";
+import {
+  copyArray,
+  concat,
+  findMin,
+  findMax,
+  findProduct,
+} from "../src/spread.js";
 /*
 a)	Copy an array
 b)	Concatenate arrays into a new array
@@ -28,6 +34,12 @@ describe("spread operator tests", function () {
     const arr2 = [4, 5, 6, 7, 8, 0];
     assert.strictEqual(findMin(...arr1), 1);
     assert.strictEqual(findMin(...arr2), 0);
+  });
+  it("tests Math.max", function () {
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5, 6, 7, 8, 0];
+    assert.strictEqual(findMax(...arr1), 3);
+    assert.strictEqual(findMax(...arr2), 8);
   });
   it("tests rest operator in function call", function () {
     const arr1 = [1, 2, 3];

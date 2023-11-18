@@ -18,7 +18,7 @@ export function concat(arr1, arr2) {
 export function findMin(...arr) {
     return Math.min(...arr);
 }
-export function findMax(arr) {
+export function findMax(...arr) {
     return Math.max(...arr);
 }
 export function findProduct(...arr) {
