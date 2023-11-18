@@ -1,4 +1,5 @@
 console.log("Quiz Connected!");
+let QUIZ = "";
 
 //  ##################################################################################################################
 //  ##################################################################################################################
@@ -427,3 +428,89 @@ console.log("Quiz Connected!");
 
 // const result: MyData[] = findHighScores2(teamStats);
 // console.log(result);
+
+//
+// function makeWorker() {
+//   let name = "Pete";
+
+//   return function () {
+//     console.log(name);
+//   };
+// }
+
+// let name = "John";
+// name;
+
+// // create a function
+
+// let work = makeWorker();
+
+// // call it
+
+// console.log(work()); // what will it show?
+
+QUIZ;
+// Quiz 4
+// Write a function, evenRecurse, that will use recursion to print all positive even numbers less than a given number, e.g.,
+// evenRecurse(7) will log 6,4,2,0
+
+// function evenRecurse(num: number): void {
+//   if (num === 0) {
+//     console.log(num);
+//     return;
+//   } else {
+//     if (num % 2 === 0) {
+//       console.log(num);
+//     }
+//     evenRecurse(num - 1);
+//   }
+// }
+
+// evenRecurse(7);
+
+//write a function, averagePoints, to get an array containing the average points across for each player .
+//  Then modify the function to return objects,
+
+// Try with a regular for..of loop and then using map and reduce.
+const player1 = { name: "Bob", points: [1, 2, 1] };
+const player2 = { name: "Andre", points: [2, 0, 1] };
+const player3 = { name: "Max", points: [1, 1, 1] };
+const players = [player1, player2, player3];
+
+type Player = {
+  name: string;
+  points: number[];
+};
+
+function averagePoints(players: Player[]): number[] {
+  let result: number[] = [];
+  for (const { name, points } of players) {
+    name;
+    let total = points.reduce((total, point) => total + point, 0);
+    let avg = total / points.length;
+    result.push(avg);
+  }
+  return result;
+}
+
+console.log("expect [1.33, 1, 1 ]: ", averagePoints(players));
+
+type PointLabel = {
+  [key: string]: number;
+};
+
+function averagePointsLabeled(players: Player[]): PointLabel[] {
+  let result: PointLabel[] = [];
+  for (const { name, points } of players) {
+    name;
+    let total = points.reduce((total, point) => total + point, 0);
+    let avg: number = Number((total / points.length).toFixed(2));
+    result.push({ [name]: avg });
+  }
+  return result;
+}
+
+console.log(
+  "expect [{Bob:1.33, Andre:1, Max:1} ]: ",
+  averagePointsLabeled(players)
+);

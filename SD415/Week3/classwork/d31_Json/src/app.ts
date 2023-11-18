@@ -1,7 +1,7 @@
 let GPT = "";
 let Question = "";
 let CW = "";
-
+const DAY = "";
 Question;
 
 // //Destructuring Arr
@@ -198,6 +198,8 @@ Question;
 //  ##################################################################################################################
 //  ##################################################################################################################
 
+DAY;
+
 //  Day 5   Recursion
 
 // function factorial(num: number): number {
@@ -276,3 +278,84 @@ GPT;
 //   const instances: number = countInstances(myString, myLetter);
 
 //   console.log(`The letter '${myLetter}' appears ${instances} times in '${myString}'.`);
+
+DAY;
+
+// //  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so
+// function fibonacci(n: number): number {
+//   if (n < 0) {
+//     return 0;
+//   }
+//   if (n <= 1) {
+//     console.log(n);
+//     return n;
+//   }
+//   return fibonacci(n - 1) + fibonacci(n - 2);
+// }
+
+// console.log("-10 =>", fibonacci(-10));
+// console.log("0 =>", fibonacci(0));
+// console.log("1 =>", fibonacci(1));
+// console.log("3 =>", fibonacci(3));
+
+CW;
+
+// modify the sum salaries example to
+// ➢ log the names to the console
+// ➢ pretty straightforward
+
+type Person = { name: string; salary: number };
+//index signature since do not know names of properties ahead of time
+//Department is an object with an unknwon number and name of properties that are strings and values
+//that are Person[] or Department objects
+
+type Department = { [deptName: string]: Person[] | Department };
+const company: Department = {
+  sales: [
+    { name: "John", salary: 1000 },
+    { name: "Alice", salary: 600 },
+  ],
+  development: {
+    sites: [
+      { name: "Peter", salary: 2000 },
+      { name: "Alex", salary: 1800 },
+    ], //subdepartments
+    internals: [{ name: "Jack", salary: 1300 }],
+  },
+};
+
+const nameList: Person[] = [];
+
+function printName(department: Department) {
+  if (Array.isArray(department)) {
+    // case (1)
+    department.forEach((person) => {
+      console.log(person.name);
+      nameList.push(person.name);
+    });
+    return;
+  } else {
+    // case (2)
+    for (const subDepartment of Object.values(department)) {
+      printName(subDepartment as Department);
+    }
+  }
+}
+printName(company);
+console.log("Person List = ", nameList);
+
+// function sumSalaries(department: Department) {
+//   if (Array.isArray(department)) {
+//     // case (1)
+//     return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+//   } else {
+//     // case (2)
+//     let sum = 0;
+//     for (const subdep of Object.values(department)) {
+//       const subDepartment = subdep as Department;
+//       sum += sumSalaries(subDepartment); // recursively call for subdepartments, sum the results
+//     }
+//     return sum;
+//   }
+// }
+// console.log(sumSalaries(company)); // 6700

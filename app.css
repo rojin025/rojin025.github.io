@@ -88,13 +88,16 @@
 
 .chapter-block {
   text-align: center;
-  background-color: #0679a3;
-  color: #f4f4f4;
+  /* background-color: #0679a3; */
+  color: #022836;
+  margin-bottom: -10px;
+  /* margin-bottom: 0px; */
   padding: 3px;
-  font-size: 35px;
-  border: solid 5px #022836;
-  border-radius: 30px;
-  margin-bottom: 0px;
+  font-size: 45px;
+  border-bottom: #bdbdbd solid 1px;
+  /* border: solid 5px #022836; */
+  /* border-radius: 30px; */
+  /* margin-bottom: 0px; */
 }
 .chapter-title {
   background-color: #022836;
