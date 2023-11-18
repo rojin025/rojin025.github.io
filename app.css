@@ -38,6 +38,7 @@
   color: white;
   border-radius: 25px;
   max-width: 200px;
+  font-size: smaller;
 }
 
 .title {
@@ -45,9 +46,12 @@
   border-bottom: solid;
 }
 
+.hidden {
+  display: none;
+}
+
 .sidebar__section li:hover {
-  background-color: #223c18;
-  font-size: large;
+  background-color: #595959;
   transition: ease;
 }
 
@@ -124,6 +128,10 @@
 }
 .homework {
   margin-bottom: 25px;
+}
+.homework-title {
+  padding-bottom: 5px;
+  border-bottom: #9eaeb4 solid 0.5px;
 }
 
 .demo {
