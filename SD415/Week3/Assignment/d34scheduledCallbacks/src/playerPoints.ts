@@ -1,8 +1,6 @@
 /*Be sure to use meaningful variable names.  
 Try to use map and reduce in your functions as appropriate. */
 
-import { start } from "repl";
-
 type Player = {
   jersey: number;
   stats: Stats[];
@@ -56,6 +54,16 @@ export function findTotalScores(teamStats: Player[]): JerseyPoints[] {
     const { jersey, stats } = player;
     stats;
     result.push({ jersey, total: findTotalPlayerPoints(player) });
+  }
+  return result;
+}
+
+export function findTotalPointsByJersey(jerseyNum: number): number {
+  let result = 0;
+  for (const player of teamStats) {
+    if (jerseyNum === player.jersey) {
+      result = findTotalPlayerPoints(player);
+    }
   }
   return result;
 }
