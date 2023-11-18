@@ -1,3 +1,9 @@
+let GPT = "";
+let Question = "";
+let CW = "";
+
+Question;
+
 // //Destructuring Arr
 // const arr = ["java", "Script", "inspired"];
 
@@ -116,7 +122,7 @@
 
 //  ################################################################################
 //  ################################################################################
-// Day 4 Callbacks
+// Day 4 Callbacks setTimeOut
 
 // function f(x: number): void {
 //   console.log("Value of x : ", x);
@@ -151,6 +157,20 @@
 
 // Be sure to use meaningful variable names and write JSdoc comments for findHighScores and any helper functions.
 
+// setTimeout
+
+// function sayHi(phrase: string, name: string): void {
+//   console.log(phrase + " " + name);
+// }
+
+// setTimeout(sayHi, 1000, "Hello", "World!!!");
+// let timeId = setInterval(sayHi, 1000, "Hello", "World!!!");
+
+// setTimeout(() => {
+//   console.log("Killing Loop");
+//   clearInterval(timeId);
+// }, 5000);
+
 // Exam selfPractice
 
 // function multiplyEvens(...arr: number[]): number {
@@ -174,3 +194,85 @@
 
 // console.log("Squre :", foo(squ, 2));
 // console.log("Cube :", foo(cube, 2));
+
+//  ##################################################################################################################
+//  ##################################################################################################################
+
+//  Day 5   Recursion
+
+// function factorial(num: number): number {
+//   if (num < 0) return -1;
+//   else if (num === 0) return 1;
+//   else {
+//     return num * factorial(num - 1);
+//   }
+// }
+// console.log("Factorial for 3 is 6 -> ", factorial(3));
+// console.log("Factorial for 5 is 120 -> ", factorial(5));
+// console.log("Factorial for 0 is 1 -> ", factorial(0));
+// console.log("Factorial for -4 is -1 -> ", factorial(-4));
+
+// //  | (num:number,power:number) => number
+// // function pow(num: number, power: number): number {}
+
+GPT;
+// function fact(num: number): number | undefined {
+//   if (num < 0) {
+//     return undefined;
+//   } else if (num === 0) {
+//     return 1;
+//   } else {
+//     const result = factorial(num - 1);
+//     return result !== undefined ? num * result : undefined;
+//   }
+// }
+
+// console.log("Factorial for 5 is 120 -> ", fact(5));
+// console.log("Factorial for 0 is 1 -> ", fact(0));
+// console.log("Factorial for -4 is undefined -> ", fact(-4));
+
+CW;
+// function findLength(str: string): number {
+//   if (str === "") return 0;
+//   else return 1 + findLength(str.slice(1));
+// }
+
+// console.log("Length :", findLength("Hello"));
+
+// function myInstances(str: string , target):
+
+CW;
+// // Find length of a String recursively, without using length property
+// function countInstances(str: string, letter: string): number {}
+// if (str ==="")
+// return 0;
+// else if (str[0]
+// === 1Btter） ｛
+// //add 1 if letter equals str[0]
+// return 1 + countInstances(str.substr(1), letter);
+// else {
+// return
+// countInstances (str.substr(1), letter);
+// }
+
+GPT;
+// function countInstances(str: string, letter: string, index: number = 0, count: number = 0): number {
+//     // Base case: end of the string
+//     if (index === str.length) {
+//       return count;
+
+//     // Check if the current character is the specified letter
+//     if (str[index] === letter) {
+//       count++;
+//     }
+
+//     // Move to the next character in the string
+//     return countInstances(str, letter, index + 1, count);
+//   }
+
+//   // Example usage:
+//   const myString: string = "banana";
+//   const myLetter: string = "a";
+//   const instances: number = countInstances(myString, myLetter);
+
+//   console.log(`The letter '${myLetter}' appears ${instances} times in '${myString}'.`);
