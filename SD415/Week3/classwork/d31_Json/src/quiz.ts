@@ -365,59 +365,67 @@ let QUIZ = "";
 //   };
 // }
 
-// // 5 Quiz
-// // //The following objects record the season statistics for players on a basketball team.
+// 5 Quiz
+// //The following objects record the season statistics for players on a basketball team.
 
-// const player1 = {
-//   jersey: 8,
-//   stats: [
-//     { game: 1, points: 6 },
-//     { game: 2, points: 7 },
-//   ],
-// };
-// const player2 = {
-//   jersey: 12,
-//   stats: [
-//     { game: 1, points: 16 },
-//     { game: 2, points: 14 },
-//   ],
-// };
-// const player3 = {
-//   jersey: 6,
-//   stats: [
-//     { game: 1, points: 10 },
-//     { game: 2, points: 6 },
-//   ],
-// };
+// const player1 = {jersey: 8, stats: [ {game : 1, points: 6}, {game : 2, points : 7} ] };
+// const player2 = {jersey: 12, stats: [ {game : 1, points: 16}, {game : 2, points : 14} ] };
+// const player3 = {jersey: 6, stats: [ {game : 1, points: 10}, {game : 2, points : 6} ] };
 // const teamStats = [player1, player2, player3];
+// //Write a function, findHighScores, that finds the high score in the season for each player as follows:
+// console.log("expect [{jersey: 8, high: 7},
+// {jersey: 12, high: 16}, {jersey: 6, high: 10}]: " ,
+//  findHighScores(teamStats));
 
-// type Stats = {
-//   game: number;
-//   points: number;
-// };
-// type Player = {
-//   jersey: number;
-//   stats: Stats[];
-// };
+const player1 = {
+  jersey: 8,
+  stats: [
+    { game: 1, points: 6 },
+    { game: 2, points: 7 },
+  ],
+};
+const player2 = {
+  jersey: 12,
+  stats: [
+    { game: 1, points: 16 },
+    { game: 2, points: 14 },
+  ],
+};
 
-// type MyData = {
-//   jersey: number;
-//   high: number;
-// };
-// function findHighScores(teamStats: Player[]): MyData[] {
-//   let result: MyData[] = [];
-//   //          DS doesnot need ()
-//   for (const { jersey, stats } of teamStats) {
-//     //        () needed for destructures
-//     const pointsArr = stats.map(({ points }) => points);
-//     const maxPoint = Math.max(...pointsArr);
-//     result.push({ jersey: jersey, high: maxPoint });
-//   }
-//   console.log("Max Result : ", result);
-//   return result;
-// }
+//          { game: 5, points: 89 },
+type Stats = { game: number; points: number };
 
-// findHighScores(teamStats);
+const player3 = {
+  jersey: 6,
+  stats: [
+    { game: 1, points: 10 }, //  1 stats
+    { game: 2, points: 6 }, //  2
+  ],
+};
+const teamStats = [player1, player2, player3];
+
+type Player = {
+  jersey: number;
+  stats: Stats[];
+};
+
+type MyData = {
+  jersey: number;
+  high: number;
+};
+function findHighScores(teamStats: Player[]): MyData[] {
+  let result: MyData[] = [];
+  //          DS doesnot need ()
+  for (const { jersey, stats } of teamStats) {
+    //        () needed for destructures
+    const pointsArr = stats.map(({ points }) => points); // [ 10 , 6 ]
+    const maxPoint = Math.max(...pointsArr); //  10
+    result.push({ jersey: jersey, high: maxPoint });
+  }
+  return result;
+}
+
+findHighScores(teamStats);
 
 // // GPT Awesomeness
 // const findHighScores2 = (teamStats: Player[]): MyData[] =>
@@ -471,46 +479,70 @@ QUIZ;
 //write a function, averagePoints, to get an array containing the average points across for each player .
 //  Then modify the function to return objects,
 
-// Try with a regular for..of loop and then using map and reduce.
-const player1 = { name: "Bob", points: [1, 2, 1] };
-const player2 = { name: "Andre", points: [2, 0, 1] };
-const player3 = { name: "Max", points: [1, 1, 1] };
-const players = [player1, player2, player3];
+// // Try with a regular for..of loop and then using map and reduce.
+// const player1 = { name: "Bob", points: [1, 2, 1] };
+// const player2 = { name: "Andre", points: [2, 0, 1] };
+// const player3 = { name: "Max", points: [1, 1, 1] };
+// const players = [player1, player2, player3];
 
-type Player = {
-  name: string;
-  points: number[];
-};
+// type Player = {
+//   name: string;
+//   points: number[];
+// };
 
-function averagePoints(players: Player[]): number[] {
-  let result: number[] = [];
-  for (const { name, points } of players) {
-    name;
-    let total = points.reduce((total, point) => total + point, 0);
-    let avg = total / points.length;
-    result.push(avg);
-  }
-  return result;
-}
+// function averagePoints(players: Player[]): number[] {
+//   let result: number[] = [];
+//   //          Points -> destucture
+//   for (const { points } of players) {   //
+//     // name;     //  "Bob"
+//     //  points: [1, 2, 1] -> 4  // use reduce to get total number.
+//     let total = points.reduce((total, point) => total + point, 0);
+//     let avg = total / points.length;
+//     result.push(avg);
+//   }
+//   return result;
+// }
 
-console.log("expect [1.33, 1, 1 ]: ", averagePoints(players));
+// console.log(averagePoints);   //  Funtion // 0 . it will print out funciton as ref
+// // console.log(averagePoints());  //
 
-type PointLabel = {
-  [key: string]: number;
-};
+// console.log("expect [1.33, 1, 1 ]: ", averagePoints(players));
 
-function averagePointsLabeled(players: Player[]): PointLabel[] {
-  let result: PointLabel[] = [];
-  for (const { name, points } of players) {
-    name;
-    let total = points.reduce((total, point) => total + point, 0);
-    let avg: number = Number((total / points.length).toFixed(2));
-    result.push({ [name]: avg });
-  }
-  return result;
-}
+// type PointLabel = {
+//   [key: string]: number;
+// };
 
-console.log(
-  "expect [{Bob:1.33, Andre:1, Max:1} ]: ",
-  averagePointsLabeled(players)
-);
+// function averagePointsLabeled(players: Player[]): PointLabel[] {
+//   let result: PointLabel[] = [];
+//   for (const { name, points } of players) {
+//     name;
+//     let total = points.reduce((total, point) => total + point, 0);
+//     let avg: number = Number((total / points.length).toFixed(2));
+//     result.push({ [name]: avg });
+//   }
+//   return result;
+// }
+
+// console.log(
+//   "expect [{Bob:1.33}, {Andre:1}, {Max:1} ]: ",
+//   averagePointsLabeled(players)
+// );
+
+// // Geli
+// console.log((123.2345).toFixed(2));
+
+// function averagePoints(players:Player[]):number[]{
+//   let avrgPoints:number[]=[];
+//   //let avergWithNames:{name:string,points:number}[]=[];
+
+//   for (const player of players){
+//     if (player.points.length>0){
+//     let total=player.points.reduce((sum,point) =>sum+point,0)
+//      avrgPoints.push(total/player.points.length);
+//      //avergWithNames.push({name:player.name,points:avrgPoints})
+//     }
+//   }
+
+// return avrgPoints
+// }
+// console.log (averagePoints(players));

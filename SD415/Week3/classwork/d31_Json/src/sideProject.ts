@@ -234,3 +234,20 @@
 
 // console.log("Data Base of all flights:");
 // console.log(dataBase);
+
+//  Section 11: Working with array
+//  #########################################################################################################
+//  #########################################################################################################
+
+let arr = [1, 2, 3];
+
+// At Method
+
+// Old ways
+const last = arr.slice(-1)[0]; // 3 value extacted after array
+console.log(last);
+console.log(arr[arr.length - 1]); // 3
+
+// New way
+console.log(arr.at(-1)); // 3 -> value it self
+console.log("Java".at(0)); // "J"
