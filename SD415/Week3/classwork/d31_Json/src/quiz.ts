@@ -1,6 +1,7 @@
 console.log("Quiz Connected!");
 let QUIZ = "";
-
+const EXAM ="";
+const GPT ="";
 
 QUIZ
 // Final Quiz
@@ -71,3 +72,139 @@ ask("Do you agree?", yes, no);
 ask("Do you agree?", 
   function ():void{console.log("Agree");},
   function ():void{console.log("Disagree");})
+
+EXAM;
+
+// 3
+type MASH = {
+  a: number;
+  b: number;
+  c: number;
+}
+const abcs = [{a:1, b:2, c:3}, {a:2, b:2, c:2}, {a:5, b:2, c:3}];
+function mash(mashArr: MASH[]): number[]{
+  return mashArr.map(({a,b,c}) => a*b*c);
+}
+abcs;mash;
+// console.log("Expected [6,8,30]", mash(abcs));
+
+// 4.
+type InnerObject = {
+  name: string;
+  value: number;
+};
+
+type OuterObject= {
+  id: number;
+  data: InnerObject[];
+}
+
+const dataArray : OuterObject[] = [
+  {
+    id: 1,
+    data: [
+      {name: "A", value: 10},
+      {name: "B", value: 20}
+    ]
+  },
+  {
+    id: 2,
+    data: [
+      {name: "C", value: 30},
+      {name: "D", value: 40}
+    ]
+  }
+]
+
+function getTotalSum(dataArray: OuterObject[]): number{
+  let valueArr:number[] = [];
+  dataArray.forEach(({data}) => {
+    ( data.map(({value}) => valueArr.push(value)));
+  });
+  return valueArr.reduce((total, value) => total + value,0);
+}
+getTotalSum;
+// console.log("Expectiong : 100 ",  getTotalSum(dataArray));
+
+GPT;
+// function getTotalSum(dataArray: OuterObject[]): number {
+//   return dataArray
+//     .map(({ data }) => data.map(({ value }) => value))
+//     .flat()
+//     .reduce((total, value) => total + value, 0);
+// }
+// console.log("Expecting: 100", getTotalSum(dataArray));
+
+function getAllName(dataArray: OuterObject[]): string[]{
+  return dataArray
+    .map(({data}) => data
+    .map(({name}) => name))
+    .flat();
+}
+getAllName;
+// console.log("Names are ",getAllName(dataArray));
+
+function getSumById(dataArray: OuterObject[], id: number): number{
+  for(const {id: dataId, data} of dataArray ){
+    if (id === dataId ) {
+      return data.map(({value}) => value).reduce((total, value) => total + value, 0);
+   }
+  }
+  return 0;
+}
+getSumById;dataArray;
+
+// console.log("id 2 is 70: ", getSumById(dataArray, 2));
+// console.log("id 1 is 30: ", getSumById(dataArray, 1));
+// console.log("id 10 is 0: ", getSumById(dataArray, 10));
+
+//5
+let timerId: NodeJS.Timeout;
+function timer415(time: number){
+  timerId = setInterval(timer,1000,time);
+}
+// CallBack
+function timer(time: number): void{
+  if (time >= 0) {
+    console.log(time);
+    timer(--time);
+  } else {
+    clearInterval(timerId);
+  } 
+}
+
+timer415;
+// timer415(10);
+
+function timer41(time: number): void {
+  let timerId: NodeJS.Timeout;
+
+  function tick(): void {
+    if (time >= 0) {
+      console.log(time);
+      time--;
+    } else {
+      clearInterval(timerId);
+    }
+  }
+
+  timerId = setInterval(tick, 1000);
+}
+
+// timer41(10);
+timer41;
+
+// function myTimer(time: number): void{
+//   let timerId: NodeJS.Timeout;
+//   function tick(): void {
+//     if(time>= 0){
+//       console.log(time);
+//       time--;
+//     } else {
+//       clearInterval(timerId);
+//     }
+//   }
+//   timerId = setInterval(tick, 1000);
+// }
+// myTimer(10);
+
