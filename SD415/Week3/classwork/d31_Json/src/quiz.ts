@@ -377,55 +377,55 @@ let QUIZ = "";
 // {jersey: 12, high: 16}, {jersey: 6, high: 10}]: " ,
 //  findHighScores(teamStats));
 
-const player1 = {
-  jersey: 8,
-  stats: [
-    { game: 1, points: 6 },
-    { game: 2, points: 7 },
-  ],
-};
-const player2 = {
-  jersey: 12,
-  stats: [
-    { game: 1, points: 16 },
-    { game: 2, points: 14 },
-  ],
-};
+// const player1 = {
+//   jersey: 8,
+//   stats: [
+//     { game: 1, points: 6 },
+//     { game: 2, points: 7 },
+//   ],
+// };
+// const player2 = {
+//   jersey: 12,
+//   stats: [
+//     { game: 1, points: 16 },
+//     { game: 2, points: 14 },
+//   ],
+// };
 
 //          { game: 5, points: 89 },
-type Stats = { game: number; points: number };
+// type Stats = { game: number; points: number };
 
-const player3 = {
-  jersey: 6,
-  stats: [
-    { game: 1, points: 10 }, //  1 stats
-    { game: 2, points: 6 }, //  2
-  ],
-};
-const teamStats = [player1, player2, player3];
+// const player3 = {
+//   jersey: 6,
+//   stats: [
+//     { game: 1, points: 10 }, //  1 stats
+//     { game: 2, points: 6 }, //  2
+//   ],
+// };
+// const teamStats = [player1, player2, player3];
 
-type Player = {
-  jersey: number;
-  stats: Stats[];
-};
+// type Player = {
+//   jersey: number;
+//   stats: Stats[];
+// };
 
-type MyData = {
-  jersey: number;
-  high: number;
-};
-function findHighScores(teamStats: Player[]): MyData[] {
-  let result: MyData[] = [];
-  //          DS doesnot need ()
-  for (const { jersey, stats } of teamStats) {
-    //        () needed for destructures
-    const pointsArr = stats.map(({ points }) => points); // [ 10 , 6 ]
-    const maxPoint = Math.max(...pointsArr); //  10
-    result.push({ jersey: jersey, high: maxPoint });
-  }
-  return result;
-}
+// type MyData = {
+//   jersey: number;
+//   high: number;
+// };
+// function findHighScores(teamStats: Player[]): MyData[] {
+//   let result: MyData[] = [];
+//   //          DS doesnot need ()
+//   for (const { jersey, stats } of teamStats) {
+//     //        () needed for destructures
+//     const pointsArr = stats.map(({ points }) => points); // [ 10 , 6 ]
+//     const maxPoint = Math.max(...pointsArr); //  10
+//     result.push({ jersey: jersey, high: maxPoint });
+//   }
+//   return result;
+// }
 
-findHighScores(teamStats);
+// findHighScores(teamStats);
 
 // // GPT Awesomeness
 // const findHighScores2 = (teamStats: Player[]): MyData[] =>
@@ -546,3 +546,82 @@ QUIZ;
 // return avrgPoints
 // }
 // console.log (averagePoints(players));
+
+
+QUIZ
+// Final Quiz
+//1. write a function, averagePoints, to get an array containing the average points across for each player .
+
+// Try with a regular for..of loop and then using map.
+type Player = {
+  name: string;
+  points: number[];
+};
+
+type MyData ={ 
+  [key: string]: number;
+};
+
+
+const player1: Player = {name: "Bob", points: [1, 2, 1]};
+
+const player2: Player  = {name: "Andre", points: [2, 0, 1]};
+
+const player3: Player  = {name: "Max", points: [1, 1, 1]};
+
+const players = [player1, player2, player3];
+
+
+function averagePoints(players: Player[]): MyData[]{
+  let myData: MyData[] = [];
+  players.map( () => {
+    const {name , points} = player;
+    (player).map(
+        (current,_,arr) => {
+          const totalPoints = points.reduce((total, point) => total + point, 0);
+          [name]: (totalPoints/arr.length);
+  });
+  return myData;
+}
+
+console.log("expect [1.33, 1, 1 ]: ", averagePoints (players));
+
+//console.log("expect [{Bob:1.33, Andre:1, Max:1} ]: ", averagePoints (players));
+
+// 2. const array123 = [1, 2, 3]
+
+// use map and an arrow function to get a new array with the squares of each element -- i.e., [1, 4, 9]
+
+ 
+
+ 
+
+// 3. Implement the ask function, which should callback the yes function if the user answers yes to the question, else
+
+// calls back the no function.
+
+// const prompt = require("prompt-sync")();
+
+// function ask(question, yes, no) {
+
+// }
+
+// function showOk() {
+
+// console.log ( "You agreed." );
+
+// }
+
+// function showCancel() {
+
+// console.log ( "You canceled the execution." );
+
+// }
+
+// ask("Do you agree?", showOk, showCancel);
+
+ 
+
+ 
+
+// 4. replace the showCancel and showOk function declaration with arrow functions in the ask call
