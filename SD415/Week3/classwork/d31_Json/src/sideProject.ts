@@ -239,15 +239,124 @@
 //  #########################################################################################################
 //  #########################################################################################################
 
-let arr = [1, 2, 3];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+arr;
 
 // At Method
 
-// Old ways
-const last = arr.slice(-1)[0]; // 3 value extacted after array
-console.log(last);
-console.log(arr[arr.length - 1]); // 3
+// // Old ways
+// const last = arr.slice(-1)[0]; // 3 value extacted after array
+// console.log(last);
+// console.log(arr[arr.length - 1]); // 3
 
-// New way
-console.log(arr.at(-1)); // 3 -> value it self
-console.log("Java".at(0)); // "J"
+// // New way
+// console.log(arr.at(-1)); // 3 -> value it self
+// console.log("Java".at(0)); // "J"
+
+
+// // Working with Map
+
+// // Normal Map
+// const mapped = arr.map(function(num, i, arr) {
+//     console.log(` Current num: ${num}, index: ${i} in ${arr}`);
+//     return num*2;
+// })
+
+// // Arrow
+// const mapped = arr.map((num, i, arr) =>{
+//     console.log(` Current num: ${num}, index: ${i} in ${arr}`);
+//     return num*2;
+// });
+
+// //  One liner
+// const mapped = arr.map((num, i) =>
+//     (` Current num: ${num}, index: ${i}, ${num} is ${((num % 2) === 0) ? "Even": "Odd"}`)
+// );
+// console.log("Mapped array is ", mapped);
+
+
+type Player = {
+    name: string;
+    jersey: number;
+    stats: Stats[];
+  };
+  
+  type Stats = {
+    game: number;
+    points: number;
+  };
+  
+//   type JerseyPoints = {
+//     jersey: number;
+//     total: number;
+//   };
+  
+  //The following objects record the season statistics for players on a basketball team.
+  const player1: Player = {
+    name: "Rojin Bijukchhe",
+    jersey: 8,
+    stats: [
+      { game: 1, points: 6 },
+      { game: 2, points: 7 },
+    ],
+  };
+  const player2 = {
+    name: "James Bond",
+    jersey: 12,
+    stats: [
+      { game: 1, points: 16 },
+      { game: 2, points: 14 },
+    ],
+  };
+    const player3 = {
+    name: "Steven Great Gerrard",
+    jersey: 6,
+    stats: [
+      { game: 1, points: 10 },
+      { game: 2, points: 6 },
+    ],
+  };
+  const teamStats = [player1, player2, player3];
+  teamStats;
+
+  const userName = player3.name
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0])
+    .join('');
+
+  console.log(userName);
+
+  const createUName = (player: Player)=>{
+    return player.name
+        .toLowerCase()
+        .split(" ")
+        .map(word => word[0])
+        .join('')
+  }
+  const userNames = (teamStats: Player[]): string[] => {
+    let userNames: string[] = [];
+    teamStats.forEach(player =>
+            userNames.push(createUName(player))
+        )
+    return userNames;        
+  }
+
+  console.log(    userNames(teamStats));
+
+
+  // Channing methords
+let data1: number[] = [5,2,4,1,15,8,3];
+let data2: number[] = [16,6,10,5,6,1,4];
+
+function calculateAvg(data: number[]): number{
+    return data
+        .map(age => age <= 2 ? age * 2 : 16 + age * 4 )
+        .filter(age => age >= 18)
+        .reduce((acc, age, _, arr) => {
+            return acc + age/ arr.length
+        },0);
+}
+
+console.log(calculateAvg(data1));
+console.log(calculateAvg(data2));
