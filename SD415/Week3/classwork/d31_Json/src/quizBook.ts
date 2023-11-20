@@ -454,7 +454,6 @@
 
 // console.log(work()); // what will it show?
 
-QUIZ;
 // Quiz 4
 // Write a function, evenRecurse, that will use recursion to print all positive even numbers less than a given number, e.g.,
 // evenRecurse(7) will log 6,4,2,0

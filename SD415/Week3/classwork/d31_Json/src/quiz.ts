@@ -1,4 +1,4 @@
-console.log("Quiz Connected!");
+// console.log("Quiz Connected!");
 let QUIZ = "";
 const EXAM ="";
 const GPT ="";
@@ -207,4 +207,97 @@ timer41;
 //   timerId = setInterval(tick, 1000);
 // }
 // myTimer(10);
+
+// 6 Is prime
+
+function recursivePrime(num: number){
+  if (num < 1) return;
+  else{
+    ifPrimePrint(num);
+    recursivePrime(num - 1);
+  }
+
+}
+
+// Check and print
+function ifPrimePrint(num: number){
+  for(let i = num -1 ; i > 1; i--){
+    if(num % i === 0){
+      return
+    }
+  }
+  console.log(num);
+}
+
+// recursivePrime(20);
+recursivePrime;
+
+// 7 
+
+type TreeNode = {
+  name: string;
+  value: string | null;
+  children: TreeNode[] | null;
+};
+
+const node4 = { name:"label", value: "Name", children: null };
+const node5 = { name:"input", value: "this was typed by user", children: null };
+const node3 = { name:"p", value: "this is text in the paragarph", children: null };
+const node2 = { name:"div", value: null, children: [node4, node5] };
+const node1 = { name:"body", value: null, children: [node2, node3] };
+node1;
+  
+function nodeWalker(node: TreeNode | null) {
+  if (!node) return;
+  console.log(node.name);
+  if (node.children && node.children.length > 0) {
+    node.children.forEach((child) => {
+      nodeWalker(child);
+    });
+  }
+}
+// nodeWalker(node1);
+nodeWalker;
+
+type Person = {
+  name: string;
+  age: number;
+}
+
+const array: Person[] = [
+  {name: "ram", age:29},
+  {name: "shyam", age:40},
+  {name: "ram", age:19},
+]
+
+function getAverageAge( arr: Person[]): number{
+   return Number(
+    (arr.map(({age}) => age)
+    .reduce((total, age) => 
+    total + age, 0)/ arr.length).toFixed(2));
+}
+getAverageAge;
+// console.log("Avg: ", getAverageAge(array));
+
+// function findOldestMan(arr: Person[]): Person{
+//   let oldPerson = arr[0];
+//   for(const person of arr){
+//     if(person.age > oldPerson.age)
+//       oldPerson = person;
+//   }
+//   console.log(oldPerson);
+//   return oldPerson;
+// }
+
+// findOldestMan(array);
+
+GPT;
+function findOldestMan(persons: Person[]): Person |  null{
+  if (!persons || persons.length === 0){
+    console.log("Empty");
+    return null;
+  }
+  return persons.reduce((oldest, current) => current.age > oldest.age? current: oldest);
+}
+console.log("Oldest person is ",findOldestMan(array));
 
