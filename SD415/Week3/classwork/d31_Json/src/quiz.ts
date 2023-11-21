@@ -301,3 +301,205 @@ function findOldestMan(persons: Person[]): Person |  null{
 }
 console.log("Oldest person is ",findOldestMan(array));
 
+// //9
+// function printMe(){console.log("Hello!");};
+// () => console.log("Hello");
+// const printMe2 = () => console.log("Hello");
+
+// // 12.
+// function executor(operator: (num1: number, num2: number)=>number, num1: number, num2: number): number{
+//   return operator(num1, num2);
+// }
+// function sum(num1: number, num2: number):number{
+//   return num1 + num2;
+// }
+// function mult(num1: number, num2: number):number{
+//   return num1 * num2;
+// }
+
+// console.log(executor(sum,5,10));
+// console.log(executor(mult,5,10));
+
+// // 13
+// let calculator = {
+//   operand1: 0,
+//   operand2: 0,
+//   setValue:function(x: number, y: number): void {
+//     this.operand1 = x;
+//     this.operand2 = y;
+//   },
+//   sum: function ()  {return this.operand1 + this.operand2},
+//   mul: function ()  {return this.operand1 * this.operand2},
+// };
+
+// calculator.setValue(2,3);
+// console.log("Expeted 5",calculator.sum());
+// console.log("Expeted 6",calculator.mul());
+
+// let arr = [4,2,8,15];
+// console.log(arr.sort());
+// console.log(arr.sort((a,b) => a-b)); //asc
+// console.log(arr.sort((a,b) => b-a)); //des
+
+// let str = "I Love TypeScript And Java";
+// let words = str.split(' ');
+// console.log(words.sort().join(' '));  //And I Java Love TypeScript
+// console.log(words.sort((a,b) => a.length - b.length).join(' '));  //I And Java Love TypeScript
+
+// // 16
+
+// let length = [ "Bilbo", "Gandalf", "Nazgul"];
+
+// const indexLength = length.map((item, index) => (`${index}:${item.length}`));
+// // const indexLength = length.map((item, index) => console.log(`${index}:${item.length}`));
+// console.log( indexLength);
+
+// Bank Code
+
+//const bank = {
+//   getBalance: function (id: number): number {
+//     const customer = transDB.find(customer => customer.customerId === id);
+//     if (!customer) return 0; // Return 0 if customer not found
+//     return customer.customerTransactions.reduce((acc, trans) => acc + trans, 0);
+// },
+
+// bankBalance: function (): number {
+//     return transDB.reduce((acc, customer) => acc + this.getBalance(customer.customerId), 0);
+// }
+// };
+
+// return bank;
+
+export function makeBank() {
+  const transDB = [
+      { customerId: 1, customerTransactions: [10, 50, -40] },
+      { customerId: 2, customerTransactions: [10, 10, -10] },
+      { customerId: 3, customerTransactions: [5, -5, 55] }
+  ];
+
+  const bank = {
+    getBalance : function (id: number){
+      const customer = transDB.find(cid => cid.customerId === id);
+      if(!customer) return 0;
+      return customer.customerTransactions.reduce( (total , trans) => total + trans, 0);
+    },
+    bankBalance: function (){
+      return transDB.reduce((acc, customer) => acc + this.getBalance(customer.customerId), 0);
+    }
+  }
+  
+  return bank;
+}
+
+const myBank = makeBank();
+
+// Example usage:
+console.log("Customer 1 Balance:", myBank.getBalance(1));
+console.log("Bank Balance:", myBank.bankBalance());
+
+// interface Task {
+//   taskId: number;
+//   taskDescription: string;
+//   priority: 'High' | 'Medium' | 'Low';
+//   completed: boolean;
+// }
+
+// interface TaskManager {
+//   tasks: Task[];
+//   getIncompleteTasksCount(priority: 'High' | 'Medium' | 'Low'): number;
+//   totalIncompleteTasks(): number;
+// }
+
+// const taskManager: TaskManager = {
+//   tasks: [],
+//   getIncompleteTasksCount(priority: 'High' | 'Medium' | 'Low'): number {
+//     return this.tasks.reduce((count, task) => {
+//       if (task.priority === priority && !task.completed) {
+//         count++;
+//       }
+//       return count;
+//     }, 0);
+//   },
+//   totalIncompleteTasks(): number {
+//     return this.tasks.reduce((count, task) => {
+//       if (!task.completed) {
+//         count++;
+//       }
+//       return count;
+//     }, 0);
+//   },
+// };
+
+// // Sample data for tasks
+// taskManager.tasks = [
+//   { taskId: 1, taskDescription: 'Write a report', priority: 'High', completed: false },
+//   { taskId: 2, taskDescription: 'Attend a meeting', priority: 'Medium', completed: true },
+//   { taskId: 3, taskDescription: 'Code a new feature', priority: 'High', completed: false },
+// ];
+
+// // Example usage
+// console.log(taskManager.getIncompleteTasksCount('High')); // Output: 2 (number of incomplete tasks with high priority)
+// console.log(taskManager.totalIncompleteTasks()); // Output: 2 (total number of incomplete tasks)
+
+// interface Task {
+//   taskId: number;
+//   taskDescription: string;
+//   priority: 'High' | 'Medium' | 'Low';
+//   completed: boolean;
+// }
+
+// interface TaskManager {
+//   getIncompleteTasksCount(priority: 'High' | 'Medium' | 'Low'): number;
+//   totalIncompleteTasks(): number;
+// }
+
+// function makeTask(id: number, description: string, priority: 'High' | 'Medium' | 'Low', completed: boolean): Task {
+//   return {
+//     taskId: id,
+//     taskDescription: description,
+//     priority: priority,
+//     completed: completed,
+//   };
+// }
+
+// function makeTaskManager() {
+//   const tasks: Task[] = [];
+
+//   const taskManager: TaskManager = {
+//     getIncompleteTasksCount(priority: 'High' | 'Medium' | 'Low'): number {
+//       return tasks.reduce((count, task) => {
+//         if (task.priority === priority && !task.completed) {
+//           count++;
+//         }
+//         return count;
+//       }, 0);
+//     },
+//     totalIncompleteTasks(): number {
+//       return tasks.reduce((count, task) => {
+//         if (!task.completed) {
+//           count++;
+//         }
+//         return count;
+//       }, 0);
+//     },
+//   };
+
+//   return {
+//     taskManager,
+//     makeTask,
+//   };
+// }
+
+// // Example usage
+// const { taskManager, makeTask } = makeTaskManager();
+
+// const task1 = makeTask(1, 'Write a report', 'High', false);
+// const task2 = makeTask(2, 'Attend a meeting', 'Medium', true);
+// const task3 = makeTask(3, 'Code a new feature', 'High', false);
+
+// taskManager.taskManager.tasks.push(task1, task2, task3);
+
+// // Example usage
+// console.log(taskManager.taskManager.getIncompleteTasksCount('High')); // Output: 2 (number of incomplete tasks with high priority)
+// console.log(taskManager.taskManager.totalIncompleteTasks()); // Output: 2 (total number of incomplete tasks)
+
