@@ -51,8 +51,7 @@ export function findTotalPlayerPoints(player: Player): number {
 export function findTotalScores(teamStats: Player[]): JerseyPoints[] {
   let result: JerseyPoints[] = [];
   for (const player of teamStats) {
-    const { jersey, stats } = player;
-    stats;
+    const { jersey} = player;
     result.push({ jersey, total: findTotalPlayerPoints(player) });
   }
   return result;

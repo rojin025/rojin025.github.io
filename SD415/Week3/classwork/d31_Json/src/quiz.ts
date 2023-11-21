@@ -132,7 +132,7 @@ GPT;
 //     .map(({ data }) => data.map(({ value }) => value))
 //     .flat()
 //     .reduce((total, value) => total + value, 0);
-// }
+}
 // console.log("Expecting: 100", getTotalSum(dataArray));
 
 function getAllName(dataArray: OuterObject[]): string[]{
@@ -157,6 +157,15 @@ getSumById;dataArray;
 // console.log("id 2 is 70: ", getSumById(dataArray, 2));
 // console.log("id 1 is 30: ", getSumById(dataArray, 1));
 // console.log("id 10 is 0: ", getSumById(dataArray, 10));
+
+GPT;
+// function getSumById(dataArray: OuterObject[], id: number): number {
+//   const foundData = dataArray.find(({ id: dataId }) => id === dataId);
+//   return foundData
+//     ? foundData.data.map(({ value }) => value).reduce((total, value) => total + value, 0)
+//     : 0;
+// }
+
 
 //5
 let timerId: NodeJS.Timeout;
@@ -503,3 +512,39 @@ console.log("Bank Balance:", myBank.bankBalance());
 // console.log(taskManager.taskManager.getIncompleteTasksCount('High')); // Output: 2 (number of incomplete tasks with high priority)
 // console.log(taskManager.taskManager.totalIncompleteTasks()); // Output: 2 (total number of incomplete tasks)
 
+type Item = {
+  item: string;
+  price: number;
+};
+
+type Cart = {
+  addItem: (item: string, price: number) => void;
+  removeItem: (item: string) => void;
+  getTotal: () => number;
+};
+
+function createShoppingCart(): Cart{
+  //Clouser
+  const items: Item[] = [];
+
+  return {
+    addItem: (item: string, price: number ): void => {
+      items.push({item: item, price: price});
+    },
+    removeItem: (itemToRemove: string): void => {
+      const index = items.findIndex((i) => i.item === itemToRemove);
+      if (index >= 0 )   items.splice(index,1);
+    },
+    getTotal: () => {
+      return items.reduce((total, item) => total + item.price, 0);
+    },
+  }
+}
+
+const myCart = createShoppingCart();
+myCart.addItem('Shirt', 20);
+myCart.addItem('Jeans', 50);
+console.log(myCart.getTotal());
+myCart.removeItem('Shirt');
+myCart.removeItem('Shoes');
+console.log(myCart.getTotal());
