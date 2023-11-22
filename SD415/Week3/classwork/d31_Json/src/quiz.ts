@@ -99,6 +99,7 @@ type OuterObject= {
   data: InnerObject[];
 }
 
+// write JSON a side this reference point
 const dataArray : OuterObject[] = [
   {
     id: 1,
@@ -132,7 +133,7 @@ GPT;
 //     .map(({ data }) => data.map(({ value }) => value))
 //     .flat()
 //     .reduce((total, value) => total + value, 0);
-}
+// }
 // console.log("Expecting: 100", getTotalSum(dataArray));
 
 function getAllName(dataArray: OuterObject[]): string[]{
