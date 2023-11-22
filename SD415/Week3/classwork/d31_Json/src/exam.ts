@@ -340,10 +340,12 @@
 // // // console.log(words.sort());
 
 // Making My Costume map
-function myMap(arr: number[], fun(x: number) => number):number[]{
-    let result: number[];
-    for (let i = 0; i < arr.length(); i++){
-        
+function myMap(arr: number[], fun: (x: number) => number):number[]{
+    let result: number[] = [];
+    for (let i = 0; i < arr.length; i++){
+        result.push(fun(arr[i]));
     }
-
+    return result;
 }
+
+console.log( myMap([1,2,3], function (x:number){ return x+1}));
