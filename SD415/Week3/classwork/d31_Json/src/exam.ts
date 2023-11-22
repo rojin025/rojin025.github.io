@@ -338,3 +338,12 @@
 // // console.log(numbers.sort(ass));
 // // console.log(numbers);
 // // // console.log(words.sort());
+
+// Making My Costume map
+function myMap(arr: number[], fun(x: number) => number):number[]{
+    let result: number[];
+    for (let i = 0; i < arr.length(); i++){
+        
+    }
+
+}
