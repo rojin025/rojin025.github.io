@@ -347,5 +347,26 @@ function myMap(arr: number[], fun: (x: number) => number):number[]{
     }
     return result;
 }
+myMap;
+// console.log( myMap([1,2,3], function (x:number){ return x+1}));
 
-console.log( myMap([1,2,3], function (x:number){ return x+1}));
+type Inventory = {
+    soSomething: () => void;
+    soAnotherthing: (x: number) => number;
+}
+
+function makeInventory(): Inventory{
+    const cart: number[] = [];
+
+    return {
+        soSomething: function (){
+            console.log("Somthing is processing");
+        },
+        soAnotherthing: function(num: number): number{
+            return num * 2;
+        }
+    }
+}
+
+const myInventory = makeInventory;
+myInventory.soSomething
