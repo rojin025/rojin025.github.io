@@ -363,10 +363,15 @@ function makeInventory(): Inventory{
             console.log("Somthing is processing");
         },
         soAnotherthing: function(num: number): number{
-            return num * 2;
+
+            return cart.push(num * 2);
         }
     }
 }
 
-const myInventory = makeInventory;
-myInventory.soSomething
+makeInventory;
+// const myInventory = makeInventory;
+// myInventory.soSomething
+
+setTimeout(foo(), 1000); function foo(){return ()=>console.log("baz");}
+// setInterval(foo2(), 1000); function foo2(){return ()=>console.log("baz");}
