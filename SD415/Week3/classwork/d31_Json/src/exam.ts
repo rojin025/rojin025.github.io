@@ -322,22 +322,22 @@
 // // console.log(arr.map((str, index) => index + " : " + str.length));
 
 // // sort
-// // const numbers = [1, 5, 18, 2, 77, 108];
-// // // const words = ["x", "a", "c", "b"];
-// // // function des(a: number, b: number): number {
-// // //   if (a < b) return 1;
-// // //   if (a > b) return -1;
-// // //   return 0;
-// // // }
-// // function ass(a: number, b: number): number {
-// //   if (a > b) return 1;
-// //   if (a < b) return -1;
-// //   return 0;
-// // }
-// // console.log(numbers);
-// // console.log(numbers.sort(ass));
-// // console.log(numbers);
-// // // console.log(words.sort());
+const numbers = [1, 5, 18, 2, 77, 108];
+const words = ["x", "a", "c", "b"];
+// function des(a: number, b: number): number {
+//   if (a < b) return 1;
+//   if (a > b) return -1;
+//   return 0;
+// }
+function ass(a: number, b: number): number {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+}
+console.log(numbers);
+console.log(numbers.sort(ass));
+console.log(numbers);
+console.log(words.sort());
 
 // Making My Costume map
 function myMap(arr: number[], fun: (x: number) => number):number[]{
@@ -350,28 +350,29 @@ function myMap(arr: number[], fun: (x: number) => number):number[]{
 myMap;
 // console.log( myMap([1,2,3], function (x:number){ return x+1}));
 
-type Inventory = {
-    soSomething: () => void;
-    soAnotherthing: (x: number) => number;
-}
+// type Inventory = {
+//     soSomething: () => void;
+//     soAnotherthing: (x: number) => number;
+// }
 
-function makeInventory(): Inventory{
-    const cart: number[] = [];
+// function makeInventory(): Inventory{
+//     const cart: number[] = [];
 
-    return {
-        soSomething: function (){
-            console.log("Somthing is processing");
-        },
-        soAnotherthing: function(num: number): number{
+//     return {
+//         soSomething: function (){
+//             console.log("Somthing is processing");
+//         },
+//         soAnotherthing: function(num: number): number{
 
-            return cart.push(num * 2);
-        }
-    }
-}
+//             return cart.push(num * 2);
+//         }
+//     }
+// }
 
-makeInventory;
-// const myInventory = makeInventory;
-// myInventory.soSomething
+// makeInventory;
+// // const myInventory = makeInventory;
+// // myInventory.soSomething
 
-setTimeout(foo(), 1000); function foo(){return ()=>console.log("baz");}
-// setInterval(foo2(), 1000); function foo2(){return ()=>console.log("baz");}
+// setTimeout(foo(), 1000); function foo(){return ()=>console.log("baz");}
+// // setInterval(foo2(), 1000); function foo2(){return ()=>console.log("baz");}
+
