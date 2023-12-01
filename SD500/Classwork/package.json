@@ -1,0 +1,17 @@
+{
+  "name": "classwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.2",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.1"
+  }
+}
