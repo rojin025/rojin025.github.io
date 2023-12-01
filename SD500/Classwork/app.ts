@@ -1,6 +1,5 @@
 // Day 5 
 
-console.log(" App Running!");
 class Person {
     // protected id = 123;
     private ssn = 123;
