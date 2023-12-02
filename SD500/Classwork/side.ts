@@ -1,5 +1,3 @@
-console.log("Running Side Project");
-
 // class Player {
 //     readonly firstName: string;
 //     readonly lastName: string;
@@ -110,6 +108,7 @@ class PartTimeEmp extends Employee{
     getPay(): number {
         return this.hrRate * this.workingHour;
     }
+    pay = () => {this.hrRate * this.workingHour };
 }
 
 const ram = new FullTimeEmp("Ram", "Baral", 135000);
@@ -119,3 +118,17 @@ console.log("Pay Ram: ",ram.getPay());
 const shyam = new PartTimeEmp("Shyam" , "Grung", 30, 2000);
 console.log("Shyam: " , shyam);
 console.log("Pay Shyam ", shyam.getPay());
+
+console.log(" ####################################################################");
+// Bind
+    //  The bind method will clone the function and permanently replace this
+    //  inside the function with the provided parameter.
+    //  will permanently attach this to var myGetPay
+const myGetPay = shyam.getPay.bind(shyam);
+console.log("Bind Method : Shyam Salary ", myGetPay());
+
+
+// Call
+const myPay = shyam.pay.call(shyam);
+console.log("Arrow: ", myPay);    // still undefined
+console.log("End!!");
