@@ -123,26 +123,37 @@ const shyam = new PartTimeEmp("Shyam" , "Grung", 30, 2000);
 // console.log("Pay Shyam ", shyam.getPay());
 
 console.log(" ####################################################################");
-// Bind
-    //  The bind method will clone the function and permanently replace this
-    //  inside the function with the provided parameter.
-    //  will permanently attach this to var myGetPay
-const myGetPay = shyam.getPay.bind(shyam);
-console.log("Bind Method : Shyam Salary ", myGetPay());
-console.log("------ Function Currying ------");
-const mutiplie2 = ram.multi.bind(null, 2); // here x will be cloned to be 3;
-const square3 = ram.multi.bind({},3,3);   // we are multiplying 3 with 3
+// // Bind
+//     //  The bind method will clone the function and permanently replace this
+//     //  inside the function with the provided parameter.
+//     //  will permanently attach this to var myGetPay
+// const myGetPay = shyam.getPay.bind(shyam);
+// console.log("Bind Method : Shyam Salary ", myGetPay());
+// console.log("------ Function Currying ------");
+// const mutiplie2 = ram.multi.bind(null, 2); // here x will be cloned to be 3;
+// const square3 = ram.multi.bind({},3,3);   // we are multiplying 3 with 3
 
-console.log("Muliple of 2 is ", mutiplie2(2));
-console.log("Square of 3 is ", square3());
+// console.log("Muliple of 2 is ", mutiplie2(2));
+// console.log("Square of 3 is ", square3());
 
-
-
+console.log("------ Call and Apply ------");
 // Call and Apply
     // Does not clone the original function
-    // it is only used to invoke the funtion 
+    // it is only used to invoke the funtion with (Parameter)
     // a for array
-        // 
+
+// console.log("Call() ");
+// console.log(ram.getPay());
+
+const person = { name: "Asaad",
+printNow() { console.log(`Hi ${this.name}!`); } };
+// person.printNow(); // Hi Asaad!
+// person.printNow.apply(person); // Hi Asaad!
+
+// Function borrowing
+const ramu ={ name: "Ramu"};
+person.printNow.apply(ramu);    // Hi Ramu! // From person
+
 // const myPay = shyam.pay.call(shyam);
 // console.log("Arrow: ", myPay);    // still undefined
 // console.log("End!!");   
