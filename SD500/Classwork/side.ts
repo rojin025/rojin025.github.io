@@ -73,7 +73,7 @@ myAdmin.maxScore(90);
 console.log(myAdmin);
 myAdmin.check();
 
-console.log(" ####################################################################");
+// console.log(" ####################################################################");
 // Abstract Class 
 abstract class Employee {
     constructor(public first: string, public last: string){}
@@ -94,6 +94,9 @@ class FullTimeEmp extends Employee {
     getPay(): number {
         return this.yearlySalary;
     }
+    multi(x: number, y: number): number{
+        return x * y;
+    }
 }
 
 class PartTimeEmp extends Employee{
@@ -112,12 +115,12 @@ class PartTimeEmp extends Employee{
 }
 
 const ram = new FullTimeEmp("Ram", "Baral", 135000);
-console.log(ram);
-console.log("Pay Ram: ",ram.getPay());
+// console.log(ram);
+// console.log("Pay Ram: ",ram.getPay());
 
 const shyam = new PartTimeEmp("Shyam" , "Grung", 30, 2000);
-console.log("Shyam: " , shyam);
-console.log("Pay Shyam ", shyam.getPay());
+// console.log("Shyam: " , shyam);
+// console.log("Pay Shyam ", shyam.getPay());
 
 console.log(" ####################################################################");
 // Bind
@@ -126,9 +129,26 @@ console.log(" ##################################################################
     //  will permanently attach this to var myGetPay
 const myGetPay = shyam.getPay.bind(shyam);
 console.log("Bind Method : Shyam Salary ", myGetPay());
+console.log("------ Function Currying ------");
+const mutiplie2 = ram.multi.bind(null, 2); // here x will be cloned to be 3;
+const square3 = ram.multi.bind({},3,3);   // we are multiplying 3 with 3
+
+console.log("Muliple of 2 is ", mutiplie2(2));
+console.log("Square of 3 is ", square3());
 
 
-// Call
-const myPay = shyam.pay.call(shyam);
-console.log("Arrow: ", myPay);    // still undefined
-console.log("End!!");
+
+// Call and Apply
+    // Does not clone the original function
+    // it is only used to invoke the funtion 
+    // a for array
+        // 
+// const myPay = shyam.pay.call(shyam);
+// console.log("Arrow: ", myPay);    // still undefined
+// console.log("End!!");   
+
+
+
+// Arrow function
+    // "this" is evaluated to its surrounding scope of the arrow
+    // Does not care how it is invoked or from where?   
