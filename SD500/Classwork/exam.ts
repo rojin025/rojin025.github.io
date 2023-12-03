@@ -71,6 +71,22 @@ function updateStudent_V2(updateStudent: Student): boolean {
     return true;
 }
 
+function removeStudent_V1(stdId: number): boolean{
+    if(!getStudent_V1(stdId)) return false;
+
+    const newData = data_1.filter(std => std.id !== stdId);
+    data_1 = newData;
+    return true;
+}
+function removeStudent_V2(stdId: number): boolean{
+    if(!getStudent_V2(stdId)) return false;
+
+    const newData = structuredClone(data_2);
+    delete newData[stdId];
+    data_2 = newData;
+    return true;
+}
+
 
 // Adding 
 addStudent_V2({
@@ -118,17 +134,24 @@ console.log(data_2);
 //     courses: [],
 // }));
 
-updateStudent_V2({
-    id : 5,
-    name: "GOD",
-    courses: [],
-});
+// updateStudent_V2({
+//     id : 5,
+//     name: "GOD",
+//     courses: [],
+// });
 
-console.log(updateStudent_V2({
-    id : 100,
-    name: "Zeus",
-    courses: [],
-}));
+// console.log(updateStudent_V2({
+//     id : 100,
+//     name: "Zeus",
+//     courses: [],
+// }));
+
+// // Removing 
+// console.log(removeStudent_V1(2)? "Successfully Removed" : "Cannot find the Student!");
+// console.log(removeStudent_V1(2)? "Successfully Removed" : "Cannot find the Student!");
+
+console.log(removeStudent_V2(5)? "Successfully Removed" : "Cannot find the Student!");
+console.log(removeStudent_V2(2)? "Successfully Removed" : "Cannot find the Student!");
 
 console.log("Updated Data: ",data_1);
 console.log("Updated Data: ",data_2);
