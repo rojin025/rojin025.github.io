@@ -6,7 +6,7 @@ type Course = {
     id: number;
     title: string;
     description: string;
-};
+}; 
 
 type Student = {
     id: number;
@@ -164,3 +164,21 @@ console.log("Updated Data: ",data_2);
 // const stdObjClone = {id: 4, ...structuredClone(stdObj[4])};
 // console.log(stdObjClone);
 // // console.log({id: 4 ,...stdObj[4]});
+
+
+// Array method practice
+
+function convertTitleCase(title: string ): string{
+    const capitalize = (str:string) => str[0].toUpperCase() + str.slice(1);
+
+    const exceptions = ["an", "or", "and", "in", "on", "the"];
+
+    const titleCase  = title
+        .toLowerCase()
+        .split(" ")
+        .map( word => exceptions.includes(word)? word : capitalize(word))
+        .join(" ");
+    return capitalize(titleCase);
+}
+
+console.log(convertTitleCase("hello world!!! THIS is the title or an TITLE!"));
