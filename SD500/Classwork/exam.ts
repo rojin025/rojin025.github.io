@@ -206,3 +206,27 @@ console.log("Exam is Tommorow!");
 
 console.log("how function is invoked:");
 
+const ram = {
+    name: "Ram",
+    lname: "Baral",
+    hi: function (str: string ){
+        console.log(str , this.name);
+    },
+    fname: function (){
+        console.log(this.name, this.lname);
+    }
+}
+
+const shyam ={
+    name: "Syam",
+    lname: "Gurrng"
+}
+
+console.log(ram);
+ram.hi("HI!!");
+
+ram.hi.call(shyam, "Hello");
+ram.fname.apply(shyam)
+
+const greetRojin = ram.hi.bind({},"Hello");
+greetRojin();
