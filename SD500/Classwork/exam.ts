@@ -1,152 +1,161 @@
 // console.log("Exam Prep:");
 
+import test from "node:test";
+
 // // HomeWork 3
 
-// type Course = {
-//     id: number;
-//     title: string;
-//     description: string;
-// }; 
+type Course = {
+  id: number;
+  title?: string;
+  description?: string;
+};
 
-// type Student = {
-//     id: number;
-//     name: string;
-//     courses: Course[];
-// };
+type Student = {
+  id: number;
+  name: string;
+  courses: Course[];
+};
 
-// let data_1 : readonly Student[] = Object.freeze([]);
-// let data_2 : { [student_id: string]: {name: string , courses: Course[]} } = Object.freeze({});
+let data_1: readonly Student[] = Object.freeze([]);
+let data_2: { [student_id: string]: { name: string; courses: Course[] } } =
+  Object.freeze({});
 
-// function addStudent_V1(new_student: Student): boolean{
-//     const stdExist = data_1.some( std => std.id === new_student.id);
-//     if(stdExist) return false;
+function addStudent_V1(new_student: Student): boolean {
+  const stdExist = data_1.some((std) => std.id === new_student.id);
+  if (stdExist) return false;
 
-//     const new_data = [...data_1, new_student];
-//     data_1 = new_data;
-//     return true;
-// }
+  const new_data = [...data_1, new_student];
+  data_1 = new_data;
+  return true;
+}
 
-// function addStudent_V2(new_student: Student): boolean{
-//     const stdExist = data_2.hasOwnProperty(new_student.id);
-//     if (stdExist) return false;
+function addStudent_V2(new_student: Student): boolean {
+  const stdExist = data_2.hasOwnProperty(new_student.id);
+  if (stdExist) return false;
 
-//     const new_data = structuredClone(data_2);
-//     new_data[new_student.id] = {name: new_student.name, courses: []}
-//     data_2 = new_data;
-//     return true;
-// }
+  const new_data = structuredClone(data_2);
+  const { id, name, courses } = new_student;
+  console.log("updating");
+  new_data[id] = { name, courses };
+  data_2 = new_data;
+  return true;
+}
 
-// function getStudent_V1(student_id: number): Student | null{
-//     const stdExist = data_1.find(std => std.id === student_id)
-//     if (!stdExist) return null;
+function getStudent_V1(student_id: number): Student | null {
+  const stdExist = data_1.find((std) => std.id === student_id);
+  if (!stdExist) return null;
 
-//     return stdExist;
-// }
-// function getStudent_V2(student_id: number): Student | null {
-//     const stdExist = data_2.hasOwnProperty(student_id);
-//     if (!stdExist) return null;
-    
-//     return {id: student_id, ...structuredClone(data_2[student_id])};
-// }
+  return stdExist;
+}
+function getStudent_V2(student_id: number): Student | null {
+  const stdExist = data_2.hasOwnProperty(student_id);
+  if (!stdExist) return null;
 
-// function updateStudent_V1(updateStudent: Student): boolean{
-//     if(!getStudent_V1(updateStudent.id)) return false;
+  return { id: student_id, ...structuredClone(data_2[student_id]) };
+}
 
-//     const updatedData = data_1.map( std => {   
-//         if(std.id === updateStudent.id ) return updateStudent;
-//         return std;
-//     });
-//     data_1 = updatedData;
-//     return true;
-// }
+function updateStudent_V1(updateStudent: Student): boolean {
+  if (!getStudent_V1(updateStudent.id)) return false;
 
-// function updateStudent_V2(updateStudent: Student): boolean {
-//     if(!getStudent_V2(updateStudent.id)) return false;
-    
-//     console.log("UPDATING");
-//     const {id, name, courses} = updateStudent
-//     const updatedData = structuredClone(data_2);
-//     updatedData[id] = { name , courses};
-//     data_2 = updatedData;
-//     return true;
-// }
+  const updatedData = data_1.map((std) => {
+    if (std.id === updateStudent.id) return updateStudent;
+    return std;
+  });
+  data_1 = updatedData;
+  return true;
+}
 
-// function removeStudent_V1(stdId: number): boolean{
-//     if(!getStudent_V1(stdId)) return false;
+function updateStudent_V2(updateStudent: Student): boolean {
+  if (!getStudent_V2(updateStudent.id)) return false;
 
-//     const newData = data_1.filter(std => std.id !== stdId);
-//     data_1 = newData;
-//     return true;
-// }
-// function removeStudent_V2(stdId: number): boolean{
-//     if(!getStudent_V2(stdId)) return false;
+  const { id, name, courses } = updateStudent;
+  const updatedData = structuredClone(data_2);
 
-//     const newData = structuredClone(data_2);
-//     delete newData[stdId];
-//     data_2 = newData;
-//     return true;
-// }
+  updatedData[id] = { name, courses };
+  data_2 = updatedData;
+  return true;
+}
 
+function removeStudent_V1(stdId: number): boolean {
+  if (!getStudent_V1(stdId)) return false;
 
-// // Adding 
-// addStudent_V2({
-//     id : 4,
-//     name: "Rojin",
-//     courses: [],
-// });
-// addStudent_V2({
-//     id : 5,
-//     name: "Suresh",
-//     courses: [],
-// });
-// addStudent_V1({
-//     id : 1,
-//     name: "Rojin",
-//     courses: [],
-// });
-// addStudent_V1({
-//     id : 2,
-//     name: "Suresh",
-//     courses: [],
-// });
+  const newData = data_1.filter((std) => std.id !== stdId);
+  data_1 = newData;
+  return true;
+}
+function removeStudent_V2(stdId: number): boolean {
+  if (!getStudent_V2(stdId)) return false;
 
-// // GetStd test
-// // console.log("Getting Std with ID - 1 ",getStudent_V1(1));
-// // console.log("Getting Std with ID - 10 ",getStudent_V1(10));
+  const newData = structuredClone(data_2);
+  delete newData[stdId];
+  data_2 = newData;
+  return true;
+}
 
-// // console.log("Getting Std with ID - 5 ",getStudent_V2(5));
-// // console.log("Getting Std with ID - 10 ",getStudent_V2(10));
+// Adding
+addStudent_V2({
+  id: 4,
+  name: "Rojin",
+  courses: [{ id: 101 }, { id: 501 }],
+});
+addStudent_V2({
+  id: 5,
+  name: "Suresh",
+  courses: [{ id: 401 }],
+});
+addStudent_V1({
+  id: 1,
+  name: "Rojin",
+  courses: [],
+});
+addStudent_V1({
+  id: 2,
+  name: "Suresh",
+  courses: [],
+});
+
+// GetStd test
+// console.log("Getting Std with ID - 1 ",getStudent_V1(1));
+// console.log("Getting Std with ID - 10 ",getStudent_V1(10));
+
+// console.log("Getting Std with ID - 5 ",getStudent_V2(5));
+// console.log("Getting Std with ID - 10 ",getStudent_V2(10));
 
 // console.log(data_1);
-// console.log("--------------------------------------------------------");
-// console.log(data_2);
+console.log("--------------------------------------------------------");
+console.log(data_2);
 
-// // // Update
-// // updateStudent_V1({
-// //     id : 1,
-// //     name: "Zeus",
-// //     courses: [],
-// // });
+// // Update
+// updateStudent_V1({
+//     id : 1,
+//     name: "Zeus",
+//     courses: [],
+// });
 
-// // console.log(updateStudent_V1({
-// //     id : 100,
-// //     name: "Zeus",
-// //     courses: [],
-// // }));
+// console.log(updateStudent_V1({
+//     id : 100,
+//     name: "Zeus",
+//     courses: [],
+// }));
 
-// // updateStudent_V2({
-// //     id : 5,
-// //     name: "GOD",
-// //     courses: [],
-// // });
+updateStudent_V2({
+  id: 5,
+  name: "GOD",
+  courses: [],
+});
 
-// // console.log(updateStudent_V2({
-// //     id : 100,
-// //     name: "Zeus",
-// //     courses: [],
-// // }));
+console.log(
+  updateStudent_V2({
+    id: 100,
+    name: "Zeus",
+    courses: [],
+  })
+);
 
-// // // Removing 
+console.log("--------------------------------------------------------");
+console.log(data_2);
+
+// // // Removing
 // // console.log(removeStudent_V1(2)? "Successfully Removed" : "Cannot find the Student!");
 // // console.log(removeStudent_V1(2)? "Successfully Removed" : "Cannot find the Student!");
 
@@ -164,7 +173,6 @@
 // // const stdObjClone = {id: 4, ...structuredClone(stdObj[4])};
 // // console.log(stdObjClone);
 // // // console.log({id: 4 ,...stdObj[4]});
-
 
 // // Array method practice
 
@@ -193,8 +201,8 @@ console.log("Exam is Tommorow!");
 
 // const {debit, credit} = transactions.reduce(
 //         (total, cur) => {
-//             (cur > 0) ? 
-//             total.debit += cur : 
+//             (cur > 0) ?
+//             total.debit += cur :
 //             total.credit += cur;
 //             return total;
 //         }, {debit:0, credit:0}
@@ -232,8 +240,8 @@ console.log("how function is invoked: Call, Apply and Bind");
 
 console.log("Proto");
 
-function multiply(x: number, b: number){
-    console.log(x * b);
+function multiply(x: number, b: number) {
+  console.log(x * b);
 }
 
 // const two = multiply.apply(null, [2,2]);
@@ -248,20 +256,36 @@ function multiply(x: number, b: number){
 // }, };
 // person.printAfterOneSecond();
 
-// Scoping 
+// Scoping
 
 // function foo() {
 //     let a = 1, b = 20, c;
 //     console.log(a, b, c);
-    
+
 //     function bar() {
-//         let b = 300, c = 4000; 
-//         console.log(a, b, c); 
-//         a = a + b + c; 
+//         let b = 300, c = 4000;
+//         console.log(a, b, c);
+//         a = a + b + c;
 //         console.log(a, b, c);
 //     }
-    
+
 //     bar();
 //         console.log(a, b, c);
 // }
 // foo();
+
+// exam test
+const myobj = {
+  name: "1",
+  foo: {
+    name: "2 -> ",
+    myFoo: function () {
+      console.log(this.name);
+    },
+  },
+};
+
+let myObjet = myobj.foo;
+console.log(myObjet);
+myobj.foo.myFoo();
+myObjet.myFoo();
