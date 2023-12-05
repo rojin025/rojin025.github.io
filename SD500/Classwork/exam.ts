@@ -239,11 +239,29 @@ function multiply(x: number, b: number){
 // const two = multiply.apply(null, [2,2]);
 // const three = multiply.call({}, 3,3);
 
-const person = {
-    name: "Asaad",
-    printAfterOneSecond() {
-        let name = "inside";
-        console.log(`1. ${this.name}!`);
-        setTimeout(() => { console.log(`2. ${this.name}!`); }, 1000);
-}, };
-person.printAfterOneSecond();
+// const person = {
+//     name: "Asaad",
+//     printAfterOneSecond() {
+//         let name = "inside";
+//         console.log(`1. ${this.name}!`);
+//         setTimeout(() => { console.log(`2. ${this.name}!`); }, 1000);
+// }, };
+// person.printAfterOneSecond();
+
+// Scoping 
+
+function foo() {
+    let a = 1, b = 20, c;
+    console.log(a, b, c);
+    
+    function bar() {
+        let b = 300, c = 4000; 
+        console.log(a, b, c); 
+        a = a + b + c; 
+        console.log(a, b, c);
+    }
+    
+    bar();
+        console.log(a, b, c);
+}
+foo();
