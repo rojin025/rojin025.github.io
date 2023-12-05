@@ -1,27 +1,36 @@
-// Day 5 
+// Day 5 Class and Access Modify
 
 class Person {
-    // protected id = 123;
-    private ssn = 123;
-    constructor(public name: string = "Guest" , protected age: number = 0){
+  // protected id = 123;
+  private ssn = 123;
+  jersey = 8;
 
-    }
-    greet () {
-        console.log("Hello, ", this.name);
-    }
+  constructor(public name: string = "Guest", protected age: number = 0) {}
+
+  ssnNum(ssn: number) {
+    this.ssn = ssn;
+  }
+  greet() {
+    console.log("Hello, ", this.name);
+  }
 }
+
+const gerrard = new Person("Steven Gerrard", 45);
+gerrard.ssnNum(456);
+gerrard.jersey = 10;
+console.log(gerrard);
 
 // We are ex
 class SuperPerson extends Person {
-    constructor(public power: string, name: string, age?: number){
-        super(name, age);    // if we don't 
-    }
-    // we can access protected in extended class
-    // id;
-    greet(): void {
-        console.log(`I am ${this.name}, and my age is ${this.age}.
+  constructor(public power: string, name: string, age?: number) {
+    super(name, age); // if we don't
+  }
+  // we can access protected in extended class
+  // id;
+  greet(): void {
+    console.log(`I am ${this.name}, and my age is ${this.age}.
 My superpower is, I can ${this.power}.`);
-    }
+  }
 }
 
 // // Complete it
@@ -32,7 +41,7 @@ My superpower is, I can ${this.power}.`);
 const rojin = new Person("Rojin");
 rojin.greet();
 
-const superRojin = new SuperPerson("Think" , "Theo");
+const superRojin = new SuperPerson("Think", "Theo");
 superRojin.greet();
 // superRojin.id; // cannot acess
 
@@ -45,8 +54,7 @@ superRojin.greet();
 // // Thinks to Remember:
 //     // access modifier
 //     // overriding
-//     // Constructor  
-
+//     // Constructor
 
 // // ########################################################################
 // class Person {

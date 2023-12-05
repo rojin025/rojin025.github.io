@@ -250,18 +250,18 @@ function multiply(x: number, b: number){
 
 // Scoping 
 
-function foo() {
-    let a = 1, b = 20, c;
-    console.log(a, b, c);
+// function foo() {
+//     let a = 1, b = 20, c;
+//     console.log(a, b, c);
     
-    function bar() {
-        let b = 300, c = 4000; 
-        console.log(a, b, c); 
-        a = a + b + c; 
-        console.log(a, b, c);
-    }
+//     function bar() {
+//         let b = 300, c = 4000; 
+//         console.log(a, b, c); 
+//         a = a + b + c; 
+//         console.log(a, b, c);
+//     }
     
-    bar();
-        console.log(a, b, c);
-}
-foo();
+//     bar();
+//         console.log(a, b, c);
+// }
+// foo();
