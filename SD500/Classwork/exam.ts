@@ -204,29 +204,46 @@ console.log("Exam is Tommorow!");
 // console.log("Total is ", total2);
 // console.log("Total is ", debit , credit);
 
-console.log("how function is invoked:");
+console.log("how function is invoked: Call, Apply and Bind");
+// const ram = {
+//     name: "Ram",
+//     lname: "Baral",
+//     hi: function (str: string ){
+//         console.log(str , this.name);
+//     },
+//     fname: function (){
+//         console.log(this.name, this.lname);
+//     }
+// }
 
-const ram = {
-    name: "Ram",
-    lname: "Baral",
-    hi: function (str: string ){
-        console.log(str , this.name);
-    },
-    fname: function (){
-        console.log(this.name, this.lname);
-    }
+// const shyam ={
+//     name: "Syam",
+//     lname: "Gurrng"
+// }
+
+// console.log(ram);
+// ram.hi("HI!!");
+
+// ram.hi.call(shyam, "Hello");
+// ram.fname.apply(shyam)
+
+// const greetRojin = ram.hi.bind({},"Hello");
+// greetRojin();
+
+console.log("Proto");
+
+function multiply(x: number, b: number){
+    console.log(x * b);
 }
 
-const shyam ={
-    name: "Syam",
-    lname: "Gurrng"
-}
+// const two = multiply.apply(null, [2,2]);
+// const three = multiply.call({}, 3,3);
 
-console.log(ram);
-ram.hi("HI!!");
-
-ram.hi.call(shyam, "Hello");
-ram.fname.apply(shyam)
-
-const greetRojin = ram.hi.bind({},"Hello");
-greetRojin();
+const person = {
+    name: "Asaad",
+    printAfterOneSecond() {
+        let name = "inside";
+        console.log(`1. ${this.name}!`);
+        setTimeout(() => { console.log(`2. ${this.name}!`); }, 1000);
+}, };
+person.printAfterOneSecond();
