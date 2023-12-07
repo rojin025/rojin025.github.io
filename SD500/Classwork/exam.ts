@@ -289,3 +289,33 @@ let myObjet = myobj.foo;
 console.log(myObjet);
 myobj.foo.myFoo();
 myObjet.myFoo();
+
+//
+class Shape {
+  constructor(private name: string, private color: string) {}
+
+  printArea() {
+    return 0;
+  }
+
+  getNameAndColor(): string[] {
+    return [this.name, this.color];
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(name, color, private length: number, private width: number) {
+    super(name, color);
+  }
+
+  printArea() {
+    const area = this.length * this.width;
+    const [name, color] = this.getNameAndColor();
+    console.log(`The area of the ${name} ${color} is {area}`);
+    return area;
+  }
+}
+
+console.log(`Start`);
+[1, 2, 3].forEach((i) => setTimeout((_) => console.log(i)), 0);
+console.log(`Finish`);
