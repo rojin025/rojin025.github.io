@@ -15,5 +15,8 @@
     "@types/node": "^20.10.2",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0"
   }
 }

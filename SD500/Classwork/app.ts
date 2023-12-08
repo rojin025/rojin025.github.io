@@ -1,72 +1,88 @@
-// // Promise
-// console.log("I am runnning");
+// // // Promise
+// // console.log("I am runnning");
 
-// // function orderPizza() {
-// //   const cheese = 100;
-// //   //
-// //   return new Promise<string>((reslove, reject) => {
-// //     //
-// //     // return "reslove, reject" statement
-// //     if (cheese >= 50) reslove("Hawain Pizza."); // return this in true case
-// //     else reject("No cheese!"); // return this in false case
-// //   });
-// // }
+// // // function orderPizza() {
+// // //   const cheese = 100;
+// // //   //
+// // //   return new Promise<string>((reslove, reject) => {
+// // //     //
+// // //     // return "reslove, reject" statement
+// // //     if (cheese >= 50) reslove("Hawain Pizza."); // return this in true case
+// // //     else reject("No cheese!"); // return this in false case
+// // //   });
+// // // }
 
-// // // we can do then chainnning
+// // // // we can do then chainnning
+
+// // // // orderPizza()
+// // // //   .then((pizza) => console.log(`eating ${pizza}`))
+// // // //   .catch((error) => console.log(`eating ${error}`))
+// // // //   .finally(() => console.log(`goodnight `));
 
 // // // orderPizza()
+// // //   .then((pizza) => {
+// // //     console.log(`Yess`);
+// // //     return pizza;
+// // //   }) //   we can run multiple then channing
 // // //   .then((pizza) => console.log(`eating ${pizza}`))
-// // //   .catch((error) => console.log(`eating ${error}`))
+// // //   .catch((error) => console.log(`eating ${error}`)) // only one catch works
 // // //   .finally(() => console.log(`goodnight `));
 
-// // orderPizza()
-// //   .then((pizza) => {
-// //     console.log(`Yess`);
-// //     return pizza;
-// //   }) //   we can run multiple then channing
-// //   .then((pizza) => console.log(`eating ${pizza}`))
-// //   .catch((error) => console.log(`eating ${error}`)) // only one catch works
-// //   .finally(() => console.log(`goodnight `));
+// // // Promise is Fuction Constructor new object -> new Promise
+// // // async function
+// // // doesnot sit in macroQuee
 
-// // Promise is Fuction Constructor new object -> new Promise
-// // async function
-// // doesnot sit in macroQuee
+// // // // ################################################################################################
+// // // function orderPizza() {
+// // //   console.log("Orderd received "); //  Syncronous
+// // //   const cheese = 40;
+// // //   //
+// // //   return new Promise<{ [Key: string]: string }>((reslove, reject) => {
+// // //     //
+// // //     // return "reslove, reject" statement
+// // //     if (cheese >= 50) {
+// // //       console.log("Preparing"); //  Syncronous
+// // //       reslove({
+// // //         // Async
+// // //         pizzaType: "Hawain Pizza.",
+// // //       });
+// // //       console.log("Order Finish..."); //  Syncronous
+// // //       // return this in true case
+// // //     } else
+// // //       reject(
+// // //         // Async
+// // //         { error: "No cheese!" }
+// // //       ); // return this in false case
+// // //   });
+// // // }
 
-// // // ################################################################################################
-// // function orderPizza() {
-// //   console.log("Orderd received "); //  Syncronous
-// //   const cheese = 40;
-// //   //
-// //   return new Promise<{ [Key: string]: string }>((reslove, reject) => {
-// //     //
-// //     // return "reslove, reject" statement
-// //     if (cheese >= 50) {
-// //       console.log("Preparing"); //  Syncronous
-// //       reslove({
-// //         // Async
-// //         pizzaType: "Hawain Pizza.",
-// //       });
-// //       console.log("Order Finish..."); //  Syncronous
-// //       // return this in true case
-// //     } else
-// //       reject(
-// //         // Async
-// //         { error: "No cheese!" }
-// //       ); // return this in false case
-// //   });
-// // }
+// // // orderPizza()
+// // //   .then((pizza) => {
+// // //     // Async
+// // //     console.log(`Yess`);
+// // //     return pizza;
+// // //   }) //   we can run multiple then channing
+// // //   .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
+// // //   .catch(({ error }) => console.log(`Error: ${error}`)) // only one catch works
+// // //   .finally(() => console.log(`goodnight `));
 
-// // orderPizza()
-// //   .then((pizza) => {
-// //     // Async
-// //     console.log(`Yess`);
-// //     return pizza;
-// //   }) //   we can run multiple then channing
-// //   .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
-// //   .catch(({ error }) => console.log(`Error: ${error}`)) // only one catch works
-// //   .finally(() => console.log(`goodnight `));
+// // //   console.log("starting in");
 
-// //   console.log("starting in");
+// // // // // ################################################################################################
+// // // const promise = new Promise((resolve, reject) => {
+// // //   console.log("Hello Promise"); // S
+
+// // //   setTimeout(() => {
+// // //     resolve("Promise results"); // A
+// // //   }, 1000); // resolve after 1 second console.log('goodbye promise');
+// // //   console.log("Promise Set"); // S
+// // // });
+
+// // // console.log("Code starts"); // S
+// // // promise.then((result) => {
+// // //   console.log(result);  // S
+// // // });
+// // // console.log("I love asynchronous programming"); // S
 
 // // // // ################################################################################################
 // // const promise = new Promise((resolve, reject) => {
@@ -74,71 +90,77 @@
 
 // //   setTimeout(() => {
 // //     resolve("Promise results"); // A
+// //   }, 1001); // resolve after 1 second console.log('goodbye promise');
+// //   setTimeout(() => {
+// //     console.log("Timeout results"); // A
 // //   }, 1000); // resolve after 1 second console.log('goodbye promise');
 // //   console.log("Promise Set"); // S
 // // });
 
 // // console.log("Code starts"); // S
 // // promise.then((result) => {
-// //   console.log(result);  // S
+// //   console.log(result); // S
 // // });
 // // console.log("I love asynchronous programming"); // S
 
-// // // ################################################################################################
-// const promise = new Promise((resolve, reject) => {
-//   console.log("Hello Promise"); // S
+// // // // ################################################################################################
+// // const p = new Promise((resolve, reject) => {
+// //   console.log("Hello Promise"); // S
+// //   reject("d");
+// // });
 
-//   setTimeout(() => {
-//     resolve("Promise results"); // A
-//   }, 1001); // resolve after 1 second console.log('goodbye promise');
-//   setTimeout(() => {
-//     console.log("Timeout results"); // A
-//   }, 1000); // resolve after 1 second console.log('goodbye promise');
-//   console.log("Promise Set"); // S
-// });
+// // p.then(console.log);
+// // p.then(console.log);
+// // p.catch(console.log);
+// // p.finally(console.log);
 
-// console.log("Code starts"); // S
-// promise.then((result) => {
-//   console.log(result); // S
-// });
-// console.log("I love asynchronous programming"); // S
+// // // Async
+// // // - compiler treat - we should return asyncronously
 
-// // // ################################################################################################
-// const p = new Promise((resolve, reject) => {
-//   console.log("Hello Promise"); // S
-//   reject("d");
-// });
+// // // Dont do it like this
+// // async function foo() {
+// //   console.log("foo"); // S
+// //   return "this is asyn"; // Promis .reslove(this)  // async
+// // }
 
-// p.then(console.log);
-// p.then(console.log);
-// p.catch(console.log);
-// p.finally(console.log);
+// // console.log("start");
+// // foo().then(console.log);
+// // console.log("End");
 
-// // Async
-// // - compiler treat - we should return asyncronously
-
-// // Dont do it like this
-// async function foo() {
-//   console.log("foo"); // S
-//   return "this is asyn"; // Promis .reslove(this)  // async
-// }
-
+// // Await
 // console.log("start");
-// foo().then(console.log);
-// console.log("End");
+// function foo2() {
+//   return new Promise((resolve) => resolve(`foo2`));
+// }
+// async function bar() {
+//   console.log("bar-start");
+//   // foo2 and foo is same but different approach
+//   //foo().then(result => { console.log(result); console.log('bar-end'); })
+//   let result = await foo2();
+//   console.log(result);
+//   console.log("bar-end");
+// }
+// bar();
+// console.log("end");
 
-// Await
-console.log("start");
-function foo2() {
-  return new Promise((resolve) => resolve(`foo2`));
+// LabSessions
+import fetch, { Response } from "cross-fetch";
+
+export interface Quote {
+  quote: string;
 }
-async function bar() {
-  console.log("bar-start");
-  // foo2 and foo is same but different approach
-  //foo().then(result => { console.log(result); console.log('bar-end'); })
-  let result = await foo2();
-  console.log(result);
-  console.log("bar-end");
+
+// fetch("https://api.kanye.rest/")
+//   .then((rawResponse) => rawResponse.json())
+//   // console.log(rawResponse.json())
+//   .then((jsonResponse: Quote) => console.log(jsonResponse.quote));
+
+// Same like using then.
+// get request using standard Fetch
+async function getData() {
+  const rawResponse = await fetch("https://api.kanye.rest/"); // header + body
+  const jsonResponse = await rawResponse.json(); // we are just extrating json and parsing it.
+  console.log(jsonResponse.quote); // consumes the resonse
 }
-bar();
-console.log("end");
+
+getData();
