@@ -1,88 +1,104 @@
-// Day 5 Class and Access Modify
+// Promise
+console.log("I am runnning");
 
-class Person {
-  // protected id = 123;
-  private ssn = 123;
-  jersey = 8;
-
-  constructor(public name: string = "Guest", protected age: number = 0) {}
-
-  ssnNum(ssn: number) {
-    this.ssn = ssn;
-  }
-  greet() {
-    console.log("Hello, ", this.name);
-  }
-}
-
-// const gerrard = new Person("Steven Gerrard", 45);
-// gerrard.ssnNum(456);
-// gerrard.jersey = 10;
-// console.log(gerrard);
-
-// // We are ex
-// class SuperPerson extends Person {
-//   constructor(public power: string, name: string, age?: number) {
-//     super(name, age); // if we don't
-//   }
-//   // we can access protected in extended class
-//   // id;
-//   greet(): void {
-//     console.log(`I am ${this.name}, and my age is ${this.age}.
-// My superpower is, I can ${this.power}.`);
-//   }
+// function orderPizza() {
+//   const cheese = 100;
+//   //
+//   return new Promise<string>((reslove, reject) => {
+//     //
+//     // return "reslove, reject" statement
+//     if (cheese >= 50) reslove("Hawain Pizza."); // return this in true case
+//     else reject("No cheese!"); // return this in false case
+//   });
 // }
 
-// // // Complete it
-// // // classs rainPerson {
-// // //     cont
-// // // }
+// // we can do then chainnning
 
-// const rojin = new Person("Rojin");
-// rojin.greet();
+// // orderPizza()
+// //   .then((pizza) => console.log(`eating ${pizza}`))
+// //   .catch((error) => console.log(`eating ${error}`))
+// //   .finally(() => console.log(`goodnight `));
 
-// const superRojin = new SuperPerson("Think", "Theo");
-// superRojin.greet();
-// // superRojin.id; // cannot acess
+// orderPizza()
+//   .then((pizza) => {
+//     console.log(`Yess`);
+//     return pizza;
+//   }) //   we can run multiple then channing
+//   .then((pizza) => console.log(`eating ${pizza}`))
+//   .catch((error) => console.log(`eating ${error}`)) // only one catch works
+//   .finally(() => console.log(`goodnight `));
 
-// // console.log(superRojin.power);
-// // console.log(superRojin.greet());
-// // // console.log(superRojin.id); // its protected
-// // // console.log(superRojin.ssn); // it private
-// // // superRojin.name = ""
+// Promise is Fuction Constructor new object -> new Promise
+// async function
+// doesnot sit in macroQuee
 
-// // // Thinks to Remember:
-// //     // access modifier
-// //     // overriding
-// //     // Constructor
+// // ################################################################################################
+// function orderPizza() {
+//   console.log("Orderd received "); //  Syncronous
+//   const cheese = 40;
+//   //
+//   return new Promise<{ [Key: string]: string }>((reslove, reject) => {
+//     //
+//     // return "reslove, reject" statement
+//     if (cheese >= 50) {
+//       console.log("Preparing"); //  Syncronous
+//       reslove({
+//         // Async
+//         pizzaType: "Hawain Pizza.",
+//       });
+//       console.log("Order Finish..."); //  Syncronous
+//       // return this in true case
+//     } else
+//       reject(
+//         // Async
+//         { error: "No cheese!" }
+//       ); // return this in false case
+//   });
+// }
 
-// // // ########################################################################
-// // class Person {
-// //     id =123;
-// //     foo() {
-// //         console.log("my foo pointing To Object.Prototype");
-// //     }
-// // }
+// orderPizza()
+//   .then((pizza) => {
+//     // Async
+//     console.log(`Yess`);
+//     return pizza;
+//   }) //   we can run multiple then channing
+//   .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
+//   .catch(({ error }) => console.log(`Error: ${error}`)) // only one catch works
+//   .finally(() => console.log(`goodnight `));
 
-// // const p1 = new Person();
-// // const p2 = new Person();
+//   console.log("starting in");
 
-// // console.log(p1);
-// // console.log(p2);
+// // // ################################################################################################
+// const promise = new Promise((resolve, reject) => {
+//   console.log("Hello Promise"); // S
 
-// // p1.foo();
-// // p2.foo();
+//   setTimeout(() => {
+//     resolve("Promise results"); // A
+//   }, 1000); // resolve after 1 second console.log('goodbye promise');
+//   console.log("Promise Set"); // S
+// });
 
-// // console.log(p1.foo.toString);
-// // console.log(`p1.foo
+// console.log("Code starts"); // S
+// promise.then((result) => {
+//   console.log(result);  // S
+// });
+// console.log("I love asynchronous programming"); // S
 
-// // .toString`);    // this will print it shape as well
+// // ################################################################################################
+const promise = new Promise((resolve, reject) => {
+  console.log("Hello Promise"); // S
 
-// // // p1.__proto__.greet;  // donot touch __proto__
+  setTimeout(() => {
+    resolve("Promise results"); // A
+  }, 1001); // resolve after 1 second console.log('goodbye promise');
+  setTimeout(() => {
+    console.log("Timeout results"); // A
+  }, 1000); // resolve after 1 second console.log('goodbye promise');
+  console.log("Promise Set"); // S
+});
 
-// // console.log("--------------");
-// // const foo = p1.foo;
-// // // Its not suppose to work
-// // foo(); // we are calling it from Global context
-
-// // // Function.bind(obj)
+console.log("Code starts"); // S
+promise.then((result) => {
+  console.log(result); // S
+});
+console.log("I love asynchronous programming"); // S
