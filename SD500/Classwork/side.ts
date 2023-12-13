@@ -228,4 +228,17 @@ function whereAmI(lat: number, lng: number) {
     .catch((e) => console.log(e));
 }
 
-whereAmI(52.508, 13.381);
+// whereAmI(52.508, 13.381);
+
+/** Promisification */
+
+const lotteryPromise = new Promise((resolve, reject) => {
+  if (Math.random() >= 0.7) resolve("Congratulations!!!!! You Win!");
+  reject(new Error("You lose!"));
+});
+
+// Promisifation
+lotteryPromise
+  .then((resolve) => console.log(resolve))
+  .catch((error) => console.log(error.message))
+  .finally(() => console.log("Stay Blessed!"));
