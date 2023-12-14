@@ -161,6 +161,29 @@ const instance2 = Singletion.getInstance();
 // console.log(instance1);
 // console.log(instance2);
 
+// more Singleton Practise
+class Singletion2 {
+  static #instance: any;
+
+  static getInstance() {
+    if (!this.#instance) this.#instance = new Object("I am an instance");
+
+    return this.#instance;
+  }
+
+  static resetInstance() {
+    this.#instance = null;
+  }
+}
+
+// const instance21 = Singletion2.getInstance();
+// console.log("Instance21 is ", instance21);
+
+// // Singletion2.resetInstance();
+
+// const instance22 = Singletion2.getInstance();
+// console.log("Instance22 is ", instance22 === instance21);
+
 // // Observer Patter
 class Subject<T> {
   #observers: Function[] = [];
@@ -173,9 +196,9 @@ class Subject<T> {
   }
 }
 
-const subject = new Subject<string>();
-subject.subscribe((msg: string) => console.log("Hello ", msg));
-subject.subscribe((msg: string) =>
-  console.log("Welcome to my world! How do you like it", msg, "?")
-);
-subject.emit("Asaad");
+// const subject = new Subject<string>();
+// subject.subscribe((msg: string) => console.log("Hello ", msg));
+// subject.subscribe((msg: string) =>
+//   console.log("Welcome to my world! How do you like it", msg, "?")
+// );
+// subject.emit("Asaad");
