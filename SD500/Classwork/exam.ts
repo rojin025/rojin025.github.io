@@ -241,13 +241,36 @@ class Subject2<T> {
   }
 }
 
-const subject2 = new Subject2<string>();
-const observer1 = (msg: string) => console.log("Hello ", msg);
-const observer2 = (msg: string) => console.log("Namaste ", msg);
+// const subject2 = new Subject2<string>();
+// const observer1 = (msg: string) => console.log("Hello ", msg);
+// const observer2 = (msg: string) => console.log("Namaste ", msg);
 
-subject2.subscribe(observer1);
-subject2.subscribe(observer2);
+// subject2.subscribe(observer1);
+// subject2.subscribe(observer2);
 
-subject2.emit("Rojin");
-subject2.unsubsribe(observer2);
-subject2.emit("Asaad");
+// subject2.emit("Rojin");
+// subject2.unsubsribe(observer2);
+// subject2.emit("Asaad");
+
+class Subject3<T, U> {
+  #observers: Function[] = [];
+
+  subscribe(callback: Function) {
+    this.#observers.push(callback);
+  }
+
+  emit(para1: T, para2: U) {
+    for (const callback of this.#observers)
+      setTimeout(() => callback(para1, para2), 1000);
+  }
+}
+
+const subject3 = new Subject3<string, number>();
+subject3.subscribe((name: string, grade: number) =>
+  console.log(`Name ${name}, Grade ${grade}`)
+);
+subject3.subscribe((name: string, grade: number) =>
+  console.log(`NAM ${name}, Score is ${grade}`)
+);
+
+subject3.emit("Rojin", 4);
