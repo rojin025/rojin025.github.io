@@ -100,20 +100,37 @@ function getData() {
 
 // // Await Example
 
-console.log("Start");
-function foo() {
-  console.log("Foo-start");
-  return new Promise((resolve, reject) => reject("FOo"));
+// console.log("Start");
+// function foo() {
+//   console.log("Foo-start");
+//   return new Promise((resolve, reject) => reject("FOo"));
+// }
+// async function bar() {
+//   console.log("Bar- Start");
+//   try {
+//     const result = await foo();
+//     console.log(result);
+//   } catch (e) {
+//     console.error("error: ", e);
+//   }
+//   console.log("bar-end");
+// }
+// bar();
+// console.log("end");
+
+// // Await Example 2
+console.log(`Start`);
+async function myFunction() {
+  console.log(`A`);
+  const result = await myPromiseTask();
+  console.log(result);
 }
-async function bar() {
-  console.log("Bar- Start");
-  try {
-    const result = await foo();
-    console.log(result);
-  } catch (e) {
-    console.error("error: ", e);
-  }
-  console.log("bar-end");
+myFunction();
+console.log(`End`);
+function myPromiseTask() {
+  return new Promise((resolve) => {
+    console.log(`C`);
+    resolve(`Task Results`);
+    console.log(`D`);
+  });
 }
-bar();
-console.log("end");
