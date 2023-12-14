@@ -184,6 +184,25 @@ class Singletion2 {
 // const instance22 = Singletion2.getInstance();
 // console.log("Instance22 is ", instance22 === instance21);
 
+class Singleton3 {
+  static #instance: any;
+  static sKey = "myKey";
+
+  static getInstance(key: string) {
+    if (key === this.sKey && !this.#instance)
+      this.#instance = new Object("I am an Singleton Instance");
+    return this.#instance;
+  }
+}
+
+const instance31 = Singleton3.getInstance("wp");
+console.log(instance31);
+const instance32 = Singleton3.getInstance("myKey");
+const instance33 = Singleton3.getInstance("myKey");
+console.log(instance32);
+console.log("Same INstance ?", instance31 === instance32);
+console.log("Same INstance ?", instance33 === instance32);
+
 // // Observer Patter
 class Subject<T> {
   #observers: Function[] = [];
