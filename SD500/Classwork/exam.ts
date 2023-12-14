@@ -195,13 +195,13 @@ class Singleton3 {
   }
 }
 
-const instance31 = Singleton3.getInstance("wp");
-console.log(instance31);
-const instance32 = Singleton3.getInstance("myKey");
-const instance33 = Singleton3.getInstance("myKey");
-console.log(instance32);
-console.log("Same INstance ?", instance31 === instance32);
-console.log("Same INstance ?", instance33 === instance32);
+// const instance31 = Singleton3.getInstance("wp");
+// console.log(instance31);
+// const instance32 = Singleton3.getInstance("myKey");
+// const instance33 = Singleton3.getInstance("myKey");
+// console.log(instance32);
+// console.log("Same INstance ?", instance31 === instance32);
+// console.log("Same INstance ?", instance33 === instance32);
 
 // // Observer Patter
 class Subject<T> {
@@ -221,3 +221,33 @@ class Subject<T> {
 //   console.log("Welcome to my world! How do you like it", msg, "?")
 // );
 // subject.emit("Asaad");
+
+// Observer with Unsubscribe pattern
+class Subject2<T> {
+  #observers: Function[] = [];
+
+  subscribe(callback: Function) {
+    this.#observers.push(callback);
+  }
+
+  unsubsribe(callback: Function) {
+    this.#observers = this.#observers.filter(
+      (observer) => observer !== callback
+    );
+  }
+
+  emit(msg: T) {
+    this.#observers.forEach((callback) => callback(msg));
+  }
+}
+
+const subject2 = new Subject2<string>();
+const observer1 = (msg: string) => console.log("Hello ", msg);
+const observer2 = (msg: string) => console.log("Namaste ", msg);
+
+subject2.subscribe(observer1);
+subject2.subscribe(observer2);
+
+subject2.emit("Rojin");
+subject2.unsubsribe(observer2);
+subject2.emit("Asaad");
