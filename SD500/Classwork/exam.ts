@@ -37,23 +37,23 @@
 
 // Promise
 
-const promiseInstance = new Promise(function (resolve, reject) {
-  resolve("x");
-  reject("y");
-});
+// const promiseInstance = new Promise(function (resolve, reject) {
+//   resolve("x");
+//   reject("y");
+// });
 
 // promiseInstance
 //   .then((res) => console.log(res))
 //   .catch((error) => console.log(error))
 //   .finally(() => console.log("see YOu Soon"));
 
-// Async and await , fetch
-function getData() {
-  fetch("https://api.kanye.rest")
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
-}
+// // Async and await , fetch
+// function getData() {
+//   fetch("https://api.kanye.rest")
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+// }
 
 // console.log(getData());
 
@@ -118,19 +118,64 @@ function getData() {
 // bar();
 // console.log("end");
 
-// // Await Example 2
-console.log(`Start`);
-async function myFunction() {
-  console.log(`A`);
-  const result = await myPromiseTask();
-  console.log(result);
+// // // Await Example 2
+// console.log(`Start`);
+// async function myFunction() {
+//   console.log(`A`);
+//   const result = await myPromiseTask();
+//   console.log(result);
+// }
+// myFunction();
+// console.log(`End`);
+// function myPromiseTask() {
+//   return new Promise((resolve) => {
+//     console.log(`C`);
+//     resolve(`Task Results`);
+//     console.log(`D`);
+//   });
+// }
+
+// // Fetch
+async function getQuote() {
+  const response = await fetch("https://api.kanye.rest/");
+  const data = await response.json();
+  console.log(data);
 }
-myFunction();
-console.log(`End`);
-function myPromiseTask() {
-  return new Promise((resolve) => {
-    console.log(`C`);
-    resolve(`Task Results`);
-    console.log(`D`);
-  });
+
+// getQuote();
+
+// Singleton Pattern
+
+class Singletion {
+  static #instance: any;
+
+  static getInstance() {
+    if (!this.#instance) this.#instance = new Object("I am an Instance");
+    return this.#instance;
+  }
 }
+
+const instance1 = Singletion.getInstance();
+const instance2 = Singletion.getInstance();
+
+// console.log(instance1);
+// console.log(instance2);
+
+// // Observer Patter
+class Subject<T> {
+  #observers: Function[] = [];
+  subscribe(callback: Function) {
+    this.#observers.push(callback);
+  }
+
+  emit(msg: T) {
+    this.#observers.forEach((callback) => callback(msg));
+  }
+}
+
+const subject = new Subject<string>();
+subject.subscribe((msg: string) => console.log("Hello ", msg));
+subject.subscribe((msg: string) =>
+  console.log("Welcome to my world! How do you like it", msg, "?")
+);
+subject.emit("Asaad");
