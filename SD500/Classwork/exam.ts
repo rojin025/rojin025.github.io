@@ -1,5 +1,22 @@
 // console.log("Exam Prep");
 
+// // Async
+// console.log(1);
+// const a = setTimeout(function () {
+//   console.log(2);
+// }, 1000);
+// const b = setTimeout(function () {
+//   console.log(3);
+// }, 0);
+// console.log(4);
+
+// // Async
+// setTimeout(() => {
+//   console.log(`a`);
+//   setTimeout(() => console.log(`c`), 0);
+//   console.log(`b`);
+// }, 0);
+
 // // Not all callbacks are Async
 // console.log("Start");
 // [1, 2, 3].forEach((num) => console.log(num));
@@ -37,15 +54,15 @@
 
 // Promise
 
-// const promiseInstance = new Promise(function (resolve, reject) {
-//   resolve("x");
-//   reject("y");
-// });
+const promiseInstance = new Promise(function (resolve, reject) {
+  resolve("x");
+  reject("y");
+});
 
-// promiseInstance
-//   .then((res) => console.log(res))
-//   .catch((error) => console.log(error))
-//   .finally(() => console.log("see YOu Soon"));
+promiseInstance
+  .then((res) => console.log(res))
+  .catch((error) => console.log(error))
+  .finally(() => console.log("see YOu Soon"));
 
 // // Async and await , fetch
 // function getData() {
@@ -273,4 +290,4 @@ subject3.subscribe((name: string, grade: number) =>
   console.log(`NAM ${name}, Score is ${grade}`)
 );
 
-subject3.emit("Rojin", 4);
+// subject3.emit("Rojin", 4);
