@@ -33,40 +33,40 @@
 // // // doesnot sit in macroQuee
 
 // // // // ################################################################################################
-// // // function orderPizza() {
-// // //   console.log("Orderd received "); //  Syncronous
-// // //   const cheese = 40;
-// // //   //
-// // //   return new Promise<{ [Key: string]: string }>((reslove, reject) => {
-// // //     //
-// // //     // return "reslove, reject" statement
-// // //     if (cheese >= 50) {
-// // //       console.log("Preparing"); //  Syncronous
-// // //       reslove({
-// // //         // Async
-// // //         pizzaType: "Hawain Pizza.",
-// // //       });
-// // //       console.log("Order Finish..."); //  Syncronous
-// // //       // return this in true case
-// // //     } else
-// // //       reject(
-// // //         // Async
-// // //         { error: "No cheese!" }
-// // //       ); // return this in false case
-// // //   });
-// // // }
+function orderPizza() {
+  console.log("Orderd received "); //  Syncronous
+  const cheese = 40;
+  //
+  return new Promise<{ [Key: string]: string }>((reslove, reject) => {
+    //
+    // return "reslove, reject" statement
+    if (cheese >= 50) {
+      console.log("Preparing"); //  Syncronous
+      reslove({
+        // Async
+        pizzaType: "Hawain Pizza.",
+      });
+      console.log("Order Finish..."); //  Syncronous
+      // return this in true case
+    } else
+      reject(
+        // Async
+        { error: "No cheese!" }
+      ); // return this in false case
+  });
+}
 
-// // // orderPizza()
-// // //   .then((pizza) => {
-// // //     // Async
-// // //     console.log(`Yess`);
-// // //     return pizza;
-// // //   }) //   we can run multiple then channing
-// // //   .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
-// // //   .catch(({ error }) => console.log(`Error: ${error}`)) // only one catch works
-// // //   .finally(() => console.log(`goodnight `));
+orderPizza()
+  .then((pizza) => {
+    // Async
+    console.log(`Yess`);
+    return pizza;
+  }) //   we can run multiple then channing
+  .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
+  .catch(({ error }) => console.log(`Error: ${error}`)) // only one catch works
+  .finally(() => console.log(`goodnight `));
 
-// // //   console.log("starting in");
+console.log("starting in");
 
 // // // // // ################################################################################################
 // // // const promise = new Promise((resolve, reject) => {

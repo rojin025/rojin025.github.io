@@ -54,25 +54,51 @@
 
 // Promise
 
-const promiseInstance = new Promise(function (resolve, reject) {
-  resolve("x");
-  reject("y");
-});
+// const promiseInstance = new Promise(function (resolve, reject) {
+//   resolve("x");
+//   reject("y");
+// });
 
-promiseInstance
-  .then((res) => console.log(res))
-  .catch((error) => console.log(error))
-  .finally(() => console.log("see YOu Soon"));
+// promiseInstance
+//   .then((res) => console.log(res))
+//   .catch((error) => console.log(error))
+//   .finally(() => console.log("see YOu Soon"));
 
-// // Async and await , fetch
-// function getData() {
-//   fetch("https://api.kanye.rest")
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.error(error));
+// // Promise Practise
+// function calorieFood(calorie: number) {
+//   return new Promise((resolve, reject) => {
+//     if (calorie > 800) resolve("Pizza");
+//     reject("Salad");
+//   });
 // }
 
-// console.log(getData());
+// // Promise find Output
+// const promise1 = new Promise((resolve, reject) => {
+//   console.log("hello promise"); // sync
+//   setTimeout(() => console.log(`timeout results`), 1); // async
+//   setTimeout(() => resolve("Promise results"), 1); // async
+//   console.log("goodbye promise"); // sync
+// });
+// console.log("Code starts");
+// promise1.then((result) => {
+//   console.log(result);
+// });
+// console.log("I love asynchronous programming");
+
+// calorieFood(1500)
+//   .then((food) => console.log("Eatting ", food))
+//   .then(() => console.log("I am Storing some Pizza for tomorrow"))
+//   .catch((salad) => console.log("Eating Salad"))
+//   .finally(() => console.log("gn"));
+
+// const promise = new Promise((resolve, reject) => {
+//   console.log(`Promise starts`);
+//   resolve(`Promise result`);
+//   console.log(`Promise ends`);
+// });
+// console.log(`Code starts`);
+// promise.then(console.log);
+// console.log(`Code ends`);
 
 // // Find output
 // const promise = new Promise((resolve, reject) => {
@@ -84,7 +110,7 @@ promiseInstance
 // promise.then(console.log);
 // console.log(`Code ends`);
 
-// // // Find output 2
+// // // // Find output 2
 // const promise = new Promise((resolve, reject) => {
 //   console.log("hello promise");
 //   setTimeout(() => {
@@ -105,6 +131,16 @@ promiseInstance
 // promise.then(console.log);
 // console.log("I love asynchronous programming");
 
+// // Async and await , fetch
+// function getData() {
+//   fetch("https://api.kanye.rest")
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+// }
+
+// console.log(getData());
+
 // // // Find output 3
 // console.log("start");
 // const foo = async () => {
@@ -115,8 +151,23 @@ promiseInstance
 // foo().then(console.log);
 // console.log("end");
 
-// // Await Example
+// // // // Await
+// console.log("start");
+// function foo2() {
+//   return new Promise((resolve) => resolve(`foo2`));
+// }
+// async function bar() {
+//   console.log("bar-start");
+//   // foo2 and foo is same but different approach
+//   //foo().then(result => { console.log(result); console.log('bar-end'); })
+//   let result = await foo2();
+//   console.log(result);
+//   console.log("bar-end");
+// }
+// bar();
+// console.log("end");
 
+// // // Await Example
 // console.log("Start");
 // function foo() {
 //   console.log("Foo-start");
@@ -141,6 +192,7 @@ promiseInstance
 //   console.log(`A`);
 //   const result = await myPromiseTask();
 //   console.log(result);
+//   console.log("After Result");
 // }
 // myFunction();
 // console.log(`End`);
@@ -151,6 +203,54 @@ promiseInstance
 //     console.log(`D`);
 //   });
 // }
+
+function orderPizza() {
+  console.log("Orderd received "); //  Syncronous
+  const cheese = 40;
+  //
+  return new Promise<{ [Key: string]: string }>((reslove, reject) => {
+    //
+    // return "reslove, reject" statement
+    if (cheese >= 50) {
+      console.log("Preparing Pizza"); //  Syncronous
+      reslove({
+        // Async
+        pizzaType: "Hawain Pizza.",
+      });
+      console.log("Order Finish..."); //  Syncronous
+      // return this in true case
+    } else
+      reject(
+        // Async
+        { error: "Preparing Salad!" }
+      ); // return this in false case
+  });
+}
+
+// orderPizza()
+//   .then((pizza) => {
+//     // Async
+//     console.log(`Uber Drvier outside`);
+//     console.log(`Pizza Reveived`);
+//     return pizza;
+//   }) //   we can run multiple then channing
+//   .then(({ pizzaType }) => console.log(`eating ${pizzaType}`))
+//   .catch(({ error }) => console.log(`${error}`)) // only one catch works
+//   .finally(() => console.log(`goodnight `));
+
+// console.log("Uber picking it up...");
+
+async function getMyQuote() {
+  try {
+    const dataResponse = await fetch("https://api.kanye.rest/");
+    const data = await dataResponse.json();
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+  }
+}
+// getMyQuote();
+// console.log("Kanye Quotes:");
 
 // // Fetch
 async function getQuote() {
