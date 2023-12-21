@@ -232,16 +232,16 @@ const getData = function () {
 
 /** Promisification */
 
-const lotteryPromise = new Promise((resolve, reject) => {
-  if (Math.random() >= 0.7) resolve("Congratulations!!!!! You Win!");
-  reject(new Error("You lose!"));
-});
+// const lotteryPromise = new Promise((resolve, reject) => {
+//   if (Math.random() >= 0.7) resolve("Congratulations!!!!! You Win!");
+//   reject(new Error("You lose!"));
+// });
 
-// Promisifation
-lotteryPromise
-  .then((resolve) => console.log(resolve))
-  .catch((error) => console.log(error.message))
-  .finally(() => console.log("Stay Blessed!"));
+// // Promisifation
+// lotteryPromise
+//   .then((resolve) => console.log(resolve))
+//   .catch((error) => console.log(error.message))
+//   .finally(() => console.log("Stay Blessed!"));
 
 //Assignment
 import fetch, { Response } from "cross-fetch";
@@ -275,4 +275,5 @@ async function application() {
   application();
 }
 
-application();
+// application();
+console.log("Running side");
