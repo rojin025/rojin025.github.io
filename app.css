@@ -26,6 +26,13 @@
   display: flex;
 }
 
+.portfolio {
+  width: 100vw;
+  max-width: 1200px;
+  margin: auto;
+  /* height: 100vh; */
+}
+
 .sidebar {
   height: 700px;
   padding: 10px 30px;
